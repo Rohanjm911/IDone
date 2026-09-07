@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-navy: #0F172A;
+    --color-offwhite: #F8FAFC;
+    --color-blue: #2563EB;
+    --color-green: #16A34A;
+    --color-red: #DC2626;
+    --color-amber: #D97706;
+    --color-gray: #64748B;
+  }
+
+  .dark {
+    --color-navy: #F8FAFC;
+    --color-offwhite: #090D16;
+    --color-gray: #94A3B8;
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .dark body {
+    background-color: #090D16;
+    color: #F8FAFC;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #262626;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #383838;
+  }
+}
+
+/* Dark Mode Pure Black + Neutral Grey System (ZERO Blue Tint, ZERO Gradients) */
+.dark body {
+  background-color: #0A0A0A !important;
+  color: #F5F5F5 !important;
+}
+
+.dark .bg-white {
+  background-color: #121212 !important;
+}
+
+.dark .bg-offwhite-50 {
+  background-color: #0A0A0A !important;
+}
+
+.dark .bg-offwhite-100 {
+  background-color: #1A1A1A !important;
+}
+
+.dark .border-offwhite-200 {
+  border-color: #262626 !important;
+}
+
+.dark .bg-offwhite-200 {
+  background-color: #262626 !important;
+}
+
+.dark .border-offwhite-100 {
+  border-color: #1A1A1A !important;
+}
+
+.dark .hover\:bg-white:hover {
+  background-color: #181818 !important;
+}
+
+.dark .hover\:bg-offwhite-100:hover {
+  background-color: #1E1E1E !important;
+}
+
+.dark .hover\:border-slate-300:hover {
+  border-color: #383838 !important;
+}
+
+/* Primary Action Buttons & Primary Links in Dark Mode (High-Contrast Pure White with Black Text) */
+.dark button.bg-navy-900,
+.dark a.bg-navy-900,
+.dark button.bg-trust-600,
+.dark a.bg-trust-600,
+.dark .btn-primary {
+  background-color: #FFFFFF !important;
+  color: #0A0A0A !important;
+  border-color: #FFFFFF !important;
+}
+
+.dark button.bg-navy-900:hover,
+.dark a.bg-navy-900:hover,
+.dark button.bg-trust-600:hover,
+.dark a.bg-trust-600:hover,
+.dark .btn-primary:hover {
+  background-color: #E2E8F0 !important;
+  color: #000000 !important;
+}
+
+.dark button.bg-navy-900 *,
+.dark a.bg-navy-900 *,
+.dark button.bg-trust-600 *,
+.dark a.bg-trust-600 * {
+  color: #0A0A0A !important;
+  stroke: #0A0A0A !important;
+}
+
+/* Secondary Action Buttons & Light Pills in Dark Mode (Charcoal Surface + Crisp Border & White Text) */
+.dark button.bg-white,
+.dark a.bg-white,
+.dark button.bg-offwhite-50,
+.dark a.bg-offwhite-50 {
+  background-color: #161616 !important;
+  border-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+.dark button.bg-white:hover,
+.dark a.bg-white:hover,
+.dark button.bg-offwhite-50:hover,
+.dark a.bg-offwhite-50:hover {
+  background-color: #222222 !important;
+  border-color: #4D4D4D !important;
+  color: #FFFFFF !important;
+}
+
+.dark button.bg-white *,
+.dark a.bg-white *,
+.dark button.bg-offwhite-50 *,
+.dark a.bg-offwhite-50 * {
+  color: #FFFFFF !important;
+}
+
+/* Non-button/link containers with bg-navy-900 (Icons, Avatar Pills) */
+.dark div.bg-navy-900 {
+  background-color: #1A1A1A !important;
+  border-color: #2E2E2E !important;
+  color: #FFFFFF !important;
+}
+
+.dark .bg-navy-800 {
+  background-color: #222222 !important;
+}
+
+.dark .hover\:bg-navy-800:hover {
+  background-color: #2E2E2E !important;
+}
+
+.dark .border-navy-700 {
+  border-color: #2E2E2E !important;
+}
+
+.dark .border-navy-800 {
+  border-color: #222222 !important;
+}
+
+.dark .hover\:border-navy-600:hover {
+  border-color: #4B5563 !important;
+}
+
+/* Neutralized Semantic Pills in Dark Mode (High-Contrast & Visible) */
+.dark .bg-trust-50 {
+  background-color: #181818 !important;
+}
+.dark .border-trust-100 {
+  border-color: #383838 !important;
+}
+.dark .text-trust-900,
+.dark .text-trust-800,
+.dark .text-trust-700,
+.dark .text-trust-600 {
+  color: #FFFFFF !important;
+}
+
+.dark a.text-trust-600,
+.dark a.text-trust-700 {
+  color: #FFFFFF !important;
+}
+.dark a.text-trust-600:hover,
+.dark a.text-trust-700:hover {
+  color: #CBD5E1 !important;
+  text-decoration: underline !important;
+}
+
+.dark .bg-success-50 {
+  background-color: #122116 !important;
+}
+.dark .border-success-100 {
+  border-color: #1F3D26 !important;
+}
+.dark .text-success-900,
+.dark .text-success-800,
+.dark .text-success-700,
+.dark .text-success-600 {
+  color: #4ADE80 !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: #261D10 !important;
+}
+.dark .border-amber-100 {
+  border-color: #423016 !important;
+}
+.dark .text-amber-900,
+.dark .text-amber-800,
+.dark .text-amber-700,
+.dark .text-amber-600 {
+  color: #FBBF24 !important;
+}
+
+.dark .bg-alert-50 {
+  background-color: #261214 !important;
+}
+.dark .border-alert-100 {
+  border-color: #441A1E !important;
+}
+.dark .text-alert-900,
+.dark .text-alert-800,
+.dark .text-alert-700,
+.dark .text-alert-600,
+.dark .text-red-900,
+.dark .text-red-800,
+.dark .text-red-700,
+.dark .text-red-600 {
+  color: #F87171 !important;
+}
+
+/* Comprehensive High-Contrast Typography Hierarchy in Dark Mode */
+.dark .text-navy-900,
+.dark .text-slate-900,
+.dark .text-gray-900,
+.dark .text-zinc-900 {
+  color: #FFFFFF !important;
+}
+
+.dark .text-navy-800,
+.dark .text-slate-800,
+.dark .text-gray-800,
+.dark .text-zinc-800 {
+  color: #F8FAFC !important;
+}
+
+.dark .text-navy-700,
+.dark .text-slate-700,
+.dark .text-gray-700,
+.dark .text-zinc-700 {
+  color: #E2E8F0 !important;
+}
+
+/* Body paragraphs, cards descriptions, normal text: Crisp Luminous Silver (14:1 Contrast Ratio) */
+.dark .text-slate-600,
+.dark .text-gray-600,
+.dark .text-zinc-600 {
+  color: #E2E8F0 !important;
+}
+
+/* Metadata, subheadings, labels, category titles: Crisp Silver (11:1 Contrast Ratio) */
+.dark .text-slate-500,
+.dark .text-gray-500,
+.dark .text-zinc-500 {
+  color: #CBD5E1 !important;
+}
+
+/* Small tags, timestamps, secondary icons, subtle captions (7:1 Contrast Ratio) */
+.dark .text-slate-400,
+.dark .text-gray-400,
+.dark .text-zinc-400 {
+  color: #94A3B8 !important;
+}
+
+/* High-contrast Monospace, DID codes, Hashes, Signatures */
+.dark code,
+.dark pre,
+.dark .font-mono {
+  color: #F8FAFC !important;
+}
+
+/* High-Contrast Input Fields & Accessible Placeholders */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark select,
+.dark textarea {
+  background-color: #121212 !important;
+  border-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+.dark .shadow-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.8), 0 1px 2px -1px rgba(0, 0, 0, 0.8) !important;
+}
+
+.dark .shadow-card:hover,
+.dark .shadow-card-hover {
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.95), 0 2px 6px -1px rgba(0, 0, 0, 0.7) !important;
+}
+
+.dark .shadow-modal {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.95), 0 8px 10px -6px rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* Tactile Micro-Interactions */
+.btn-press {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+.card-interactive {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.card-interactive:hover {
+  transform: translateY(-2px);
+}
+
+/* Stagger Animation Utility Delays */
+.delay-50  { animation-delay: 50ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-350 { animation-delay: 350ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Respect User Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

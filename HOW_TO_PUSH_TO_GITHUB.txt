@@ -1,0 +1,136 @@
+================================================================================
+                    IDone — Decentralized Identity Vault
+                   HOW TO PUSH THIS PROJECT TO GITHUB
+================================================================================
+
+This guide walks you step-by-step through publishing and pushing this entire 
+repository to your GitHub account.
+
+--------------------------------------------------------------------------------
+PREREQUISITES
+--------------------------------------------------------------------------------
+1. Git installed on your computer.
+   - To check if Git is installed, open Command Prompt / PowerShell and run:
+     git --version
+   - If not installed, download it from: https://git-scm.com/downloads
+
+2. A GitHub account.
+   - If you do not have one, sign up at: https://github.com/join
+
+--------------------------------------------------------------------------------
+STEP 1: CREATE A NEW REPOSITORY ON GITHUB
+--------------------------------------------------------------------------------
+1. Log in to your GitHub account at https://github.com
+2. In the top-right corner, click the "+" icon and select "New repository"
+   (or visit: https://github.com/new).
+3. Fill in the repository details:
+   - Repository name: IDone (or any name you prefer, e.g. idone-vault)
+   - Description: Privacy-focused Decentralized Identity Vault & W3C Verifiable Credentials
+   - Choose: Public or Private
+4. IMPORTANT:
+   - DO NOT check "Add a README file"
+   - DO NOT check "Add .gitignore"
+   - DO NOT check "Choose a license"
+   (Your project already contains its own custom README, .gitignore, and LICENSE).
+5. Click the green "Create repository" button.
+6. Copy the repository URL provided on the next page:
+   - HTTPS: https://github.com/YOUR_USERNAME/IDone.git
+   - or SSH: git@github.com:YOUR_USERNAME/IDone.git
+
+--------------------------------------------------------------------------------
+STEP 2: OPEN YOUR TERMINAL IN THIS PROJECT FOLDER
+--------------------------------------------------------------------------------
+1. Open Command Prompt (CMD) or Windows PowerShell.
+2. Navigate to this project root directory by running:
+   cd /d "d:\projects and certificates\projects\cyber\IDone"
+
+--------------------------------------------------------------------------------
+STEP 3: INITIALIZE GIT AND PUSH (EXECUTE THESE COMMANDS)
+--------------------------------------------------------------------------------
+Run the following commands one by one:
+
+1. Initialize local Git repository:
+   git init
+
+2. Verify that sensitive files (.env, *.db, node_modules) are ignored:
+   git status
+   (You should see files like backend/, frontend/, README.md, launch.bat, etc.,
+    and NO node_modules or .env files listed in untracked files).
+
+3. Stage all project files:
+   git add .
+
+4. Create your first commit:
+   git commit -m "feat: complete IDone Decentralized Identity Vault platform"
+
+5. Set the primary branch name to 'main':
+   git branch -M main
+
+6. Link your local project to your GitHub repository:
+   (Replace YOUR_USERNAME and YOUR_REPO with your actual GitHub username and repository name)
+   git remote add origin https://github.com/YOUR_USERNAME/IDone.git
+
+7. Push your project to GitHub:
+   git push -u origin main
+
+--------------------------------------------------------------------------------
+STEP 4: GITHUB AUTHENTICATION (IF PROMPTED)
+--------------------------------------------------------------------------------
+When you run 'git push', GitHub may prompt you to sign in:
+
+Option A — Web Browser Authentication (Recommended):
+   - A browser window will open asking you to authorize Git Credential Manager.
+   - Click "Authorize" and sign in.
+
+Option B — Personal Access Token (PAT):
+   GitHub no longer accepts account passwords for Git operations. If prompted
+   for a password:
+   1. On GitHub, go to Settings -> Developer Settings -> Personal Access Tokens
+      (Direct link: https://github.com/settings/tokens).
+   2. Click "Generate new token" (classic).
+   3. Set Note to "IDone Project Push".
+   4. Select scopes: Check the "repo" box (Full control of private repositories).
+   5. Click "Generate token" and COPY the token string (starts with ghp_...).
+   6. When the terminal prompts for password, paste this token.
+
+Option C — GitHub CLI:
+   If you have GitHub CLI installed, you can simply run:
+   gh auth login
+
+--------------------------------------------------------------------------------
+STEP 5: HOW TO PUSH FUTURE CHANGES (DAILY WORKFLOW)
+--------------------------------------------------------------------------------
+Whenever you make updates to the code in the future, push them in 3 simple commands:
+
+1. Stage your updated files:
+   git add .
+
+2. Commit your changes with a short message:
+   git commit -m "update: improved UI animations and documentation"
+
+3. Push to GitHub:
+   git push
+
+--------------------------------------------------------------------------------
+TROUBLESHOOTING COMMON ISSUES
+--------------------------------------------------------------------------------
+Issue 1: "fatal: remote origin already exists"
+Solution:
+   Run this command to update the existing remote URL:
+   git remote set-url origin https://github.com/YOUR_USERNAME/IDone.git
+
+Issue 2: "warning: in the working copy of ..., LF will be replaced by CRLF"
+Solution:
+   This is a standard Windows notice and is completely safe to ignore.
+   To silence it, run:
+   git config core.autocrlf true
+
+Issue 3: "error: failed to push some refs to ..."
+Solution:
+   If your remote GitHub repository was initialized with files, pull first:
+   git pull origin main --rebase
+   git push -u origin main
+
+================================================================================
+                    YOUR PROJECT IS READY FOR GITHUB!
+================================================================================

@@ -1,0 +1,984 @@
+IDone — Decentralized Identity Vault
+
+Build a complete, production-quality web application called IDone.
+
+1. PROJECT OVERVIEW
+
+IDone is a privacy-focused Decentralized Identity Vault that allows users to:
+
+- Create and manage a decentralized identity
+- Store digital credentials securely
+- Manage Verifiable Credentials
+- Encrypt sensitive vault data
+- Verify credentials cryptographically
+- Share credentials selectively
+- Track credential activity
+- Use blockchain for identity/credential proofs and status
+- Maintain user ownership and control of identity data
+
+Core philosophy:
+«Your Identity. Your Credentials. Your Control.»
+
+Do NOT build this as a generic blockchain dashboard.
+
+The application should feel like a combination of:
+
+- Premium digital wallet
+- Modern banking application
+- Professional cybersecurity product
+
+It must feel trustworthy, calm, minimal, and polished.
+
+---
+
+2. IMPORTANT DEVELOPMENT RULES
+
+- Do NOT use Docker.
+- Do NOT create unnecessary folders.
+- Do NOT over-engineer the architecture.
+- Do NOT create placeholder-only pages.
+- Do NOT generate fake functionality where a working implementation is possible.
+- Keep the code modular but simple.
+- Use TypeScript strictly on the frontend.
+- Use Python/FastAPI on the backend.
+- Keep sensitive data encrypted.
+- Never store raw sensitive identity documents directly on-chain.
+- Never expose private keys or secrets to the frontend/backend logs.
+- Use environment variables for secrets.
+- Add proper error handling and validation.
+- Build responsive desktop and mobile interfaces.
+- Use accessible semantic HTML.
+- Use loading, empty, success, warning, and error states.
+
+---
+
+3. TECH STACK
+
+Frontend
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Lucide React
+- Zustand
+
+Backend
+
+- Python
+- FastAPI
+- Pydantic
+- SQLAlchemy
+- PostgreSQL
+
+Security
+
+- WebCrypto API
+- AES-256-GCM
+- Argon2id
+- Ed25519 signatures
+- Secure authentication/session handling
+- WebAuthn/Passkeys where practical
+
+Identity
+
+- W3C DID concepts
+- Verifiable Credentials
+- DID resolution
+- Credential signing and verification
+
+Blockchain
+
+Use an EVM-compatible blockchain.
+
+Blockchain should primarily be used for:
+
+- Identity registration/proofs
+- Credential hash anchoring
+- Credential status/revocation
+- Integrity verification
+
+Do NOT store personally identifiable information directly on-chain.
+
+---
+
+4. PROJECT STRUCTURE
+
+Keep the project structure simple.
+
+IDone/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+├── .env.example
+│
+├── frontend/
+│   ├── package.json
+│   ├── next.config.ts
+│   ├── tsconfig.json
+│   │
+│   ├── public/
+│   │   └── logo/
+│   │
+│   └── src/
+│       ├── app/
+│       │   ├── page.tsx
+│       │   ├── login/
+│       │   ├── register/
+│       │   ├── dashboard/
+│       │   └── verify/
+│       │
+│       ├── components/
+│       │   ├── ui/
+│       │   ├── Navbar.tsx
+│       │   ├── Sidebar.tsx
+│       │   ├── CredentialCard.tsx
+│       │   ├── IdentityCard.tsx
+│       │   ├── VaultCard.tsx
+│       │   └── VerificationResult.tsx
+│       │
+│       ├── lib/
+│       │   ├── api.ts
+│       │   ├── crypto.ts
+│       │   └── did.ts
+│       │
+│       └── types/
+│           └── index.ts
+│
+├── backend/
+│   ├── requirements.txt
+│   │
+│   └── app/
+│       ├── main.py
+│       ├── config.py
+│       ├── database.py
+│       ├── security.py
+│       ├── models.py
+│       ├── schemas.py
+│       ├── services.py
+│       │
+│       └── routes/
+│           ├── auth.py
+│           ├── identity.py
+│           ├── credentials.py
+│           ├── vault.py
+│           └── verify.py
+│
+├── blockchain/
+│   ├── IdentityRegistry.sol
+│   ├── CredentialStatus.sol
+│   └── deploy.ts
+│
+├── tests/
+│   ├── frontend/
+│   ├── backend/
+│   └── security/
+│
+└── docs/
+    ├── architecture.md
+    └── security.md
+
+Do not create additional directories unless genuinely required.
+
+---
+
+5. UI/UX DESIGN
+
+Design Direction
+
+Create a:
+
+Minimal + Premium + Cybersecurity + Digital Wallet
+
+visual language.
+
+The application must NOT look like a generic AI SaaS dashboard.
+
+Absolutely avoid:
+
+- Purple-blue gradients
+- Multi-color gradients
+- AI-style glowing blobs
+- Excessive glassmorphism
+- Neon cyberpunk styling
+- Floating 3D objects
+- Excessive shadows
+- Excessive rounded cards
+- Random decorative graphics
+- Giant meaningless statistics
+
+CRITICAL COLOR RULE
+
+NO GRADIENTS ANYWHERE.
+
+Use solid colors only.
+
+Primary palette:
+
+Deep Navy    #0F172A
+Off White    #F8FAFC
+White        #FFFFFF
+Blue         #2563EB
+Green        #16A34A
+Red          #DC2626
+Amber        #D97706
+Gray         #64748B
+
+Blue:
+Primary actions
+
+Green:
+Verified/safe states
+
+Red:
+Danger/revoked states
+
+Amber:
+Pending/warning states
+
+Use colors intentionally and sparingly.
+
+---
+
+6. TYPOGRAPHY
+
+Use:
+
+- Geist or Inter
+
+Typography should be:
+
+- Clean
+- Compact
+- Highly readable
+- Professional
+
+Avoid oversized marketing-style headings throughout the application.
+
+---
+
+7. COMPONENT STYLE
+
+Use:
+
+- 1px borders
+- Subtle shadows
+- 8–12px border radius
+- Solid backgrounds
+- Consistent spacing
+- Clear hierarchy
+- Simple icons
+
+The UI should feel:
+
+«Expensive without trying too hard.»
+
+---
+
+8. LANDING PAGE
+
+Create a polished landing page.
+
+Hero:
+
+Your Identity.
+Your Credentials.
+Your Control.
+
+A privacy-first decentralized identity vault
+for securely managing and verifying digital credentials.
+
+[ Create Identity ]    [ Verify Credential ]
+
+Include sections for:
+
+- What is IDone?
+- Identity ownership
+- Secure vault
+- Verifiable credentials
+- Credential verification
+- Blockchain-backed proofs
+- Security architecture
+
+Do not make the landing page overly flashy.
+
+---
+
+9. AUTHENTICATION
+
+Create:
+
+Register
+
+Fields:
+
+- Name
+- Email
+- Password
+- Confirm password
+
+After registration:
+
+1. Create user account
+2. Generate identity/key material
+3. Create DID
+4. Initialize encrypted vault
+5. Redirect to dashboard
+
+Login
+
+Support:
+
+- Email/password
+- Secure session
+
+Design the authentication UI to be extremely clean.
+
+---
+
+10. DASHBOARD
+
+Dashboard should immediately show the user's identity status.
+
+Example:
+
+Identity
+
+● Active
+
+did:idone:7f82...
+
+[ Copy DID ]    [ View Identity ]
+
+Then show compact statistics:
+
+Credentials       08
+Verified          06
+Vault Items       14
+
+Main dashboard sections:
+
+- Identity status
+- Recent credentials
+- Vault overview
+- Verification activity
+- Security status
+- Recent activity
+
+---
+
+11. IDENTITY PAGE
+
+Show:
+
+- DID
+- Identity status
+- Public identity information
+- Creation date
+- Verification status
+- Associated public key information
+
+Actions:
+
+- Copy DID
+- Export public identity
+- View DID document
+- Rotate keys if supported
+
+Never expose private keys.
+
+---
+
+12. CREDENTIALS PAGE
+
+Users should be able to:
+
+- View credentials
+- Add/import credential
+- Inspect credential
+- Verify credential
+- Share credential
+- View issuer
+- View status
+- View issue date
+- View expiration date
+
+Credential card design:
+
+┌──────────────────────────────────────┐
+│ 🎓 UNIVERSITY CREDENTIAL     ✓ VALID │
+│                                      │
+│ Bachelor of Computer Science        │
+│                                      │
+│ Issued by                            │
+│ Example University                   │
+│                                      │
+│ Issued       12 Aug 2026             │
+│ Status       Verified                │
+│                                      │
+│ [ View ]             [ Share ]       │
+└──────────────────────────────────────┘
+
+Statuses:
+
+- VALID
+- PENDING
+- EXPIRED
+- REVOKED
+
+Make these states visually obvious.
+
+---
+
+13. VAULT
+
+Vault should feel like a secure digital locker.
+
+Categories:
+
+- Identity
+- Education
+- Professional
+- Certificates
+- Documents
+- Other
+
+Each vault item should show:
+
+- Name
+- Type
+- Encryption status
+- Date added
+- Last accessed
+
+Example:
+
+University Certificate
+
+🔒 Encrypted
+
+Added 24 Aug 2026
+
+[ Open ] [ Share ]
+
+Sensitive data should be encrypted before storage whenever possible.
+
+---
+
+14. VERIFICATION PAGE
+
+Create a dedicated credential verification experience.
+
+Main interface:
+
+Verify Credential
+
+┌─────────────────────────────┐
+│                             │
+│      Drop credential here   │
+│                             │
+│      or [ Select File ]     │
+│                             │
+└─────────────────────────────┘
+
+After verification:
+
+✓ VALID CREDENTIAL
+
+Issuer        Example University
+Holder        did:idone:82...
+Signature     Valid
+Status        Active
+Integrity     Verified
+
+Provide clear error states:
+
+✕ INVALID CREDENTIAL
+
+Explain why verification failed without exposing sensitive information.
+
+---
+
+15. CREDENTIAL SHARING
+
+Implement selective sharing UX.
+
+Before sharing, show:
+
+Share Credential
+
+Recipient:
+example@email.com
+
+Information being shared:
+
+✓ Credential title
+✓ Issuer
+✓ Issue date
+✓ Verification proof
+
+□ Additional personal information
+
+[ Cancel ] [ Share Securely ]
+
+The user should clearly understand what is being shared.
+
+---
+
+16. ACTIVITY
+
+Create a simple activity timeline.
+
+Examples:
+
+Credential verified
+2 minutes ago
+
+Credential shared
+1 hour ago
+
+Vault item accessed
+Yesterday
+
+Identity created
+24 Aug 2026
+
+Do not make this a huge analytics dashboard.
+
+---
+
+17. SETTINGS
+
+Include:
+
+Account
+
+- Name
+- Email
+- Password
+
+Security
+
+- Passkey/WebAuthn
+- Session management
+- Key management
+- Security status
+
+Privacy
+
+- Data sharing preferences
+- Credential permissions
+
+Danger Zone
+
+- Revoke credentials
+- Delete account
+- Destroy vault
+
+Use confirmation dialogs for destructive operations.
+
+---
+
+18. SECURITY STATUS
+
+Create a compact security indicator.
+
+Example:
+
+Security Status
+
+✓ Vault encrypted
+✓ Identity active
+✓ Credentials protected
+✓ No suspicious activity
+
+Security score
+94 / 100
+
+Do not create fake security claims. Only show statuses based on actual implemented checks.
+
+---
+
+19. BACKEND API
+
+Create clean FastAPI endpoints.
+
+Authentication:
+
+POST /auth/register
+POST /auth/login
+POST /auth/logout
+
+Identity:
+
+GET  /identity
+POST /identity
+GET  /identity/did
+
+Credentials:
+
+GET  /credentials
+POST /credentials
+GET  /credentials/{id}
+DELETE /credentials/{id}
+POST /credentials/{id}/share
+
+Vault:
+
+GET  /vault
+POST /vault
+GET  /vault/{id}
+DELETE /vault/{id}
+
+Verification:
+
+POST /verify/credential
+GET  /verify/{id}
+
+Add proper authentication and authorization to protected routes.
+
+---
+
+20. DATABASE
+
+Use PostgreSQL.
+
+Keep the database model simple.
+
+Main entities:
+
+User
+Identity
+Credential
+VaultItem
+Verification
+Activity
+
+Do not store private keys in plaintext.
+
+Do not store sensitive documents unencrypted.
+
+---
+
+21. CRYPTOGRAPHY
+
+Implement actual cryptographic operations where practical.
+
+Use:
+
+Encryption
+
+AES-256-GCM
+
+Password/key derivation
+
+Argon2id
+
+Digital signatures
+
+Ed25519
+
+Client-side crypto
+
+Use WebCrypto API where supported.
+
+Create clean helper functions inside:
+
+frontend/src/lib/crypto.ts
+
+Do not invent custom cryptographic algorithms.
+
+---
+
+22. DID / VERIFIABLE CREDENTIALS
+
+Implement a practical DID/VC demonstration.
+
+Support:
+
+- DID creation
+- DID representation
+- DID resolution
+- Credential issuance
+- Credential signing
+- Credential verification
+- Credential status
+
+Keep the implementation standards-oriented.
+
+Do not pretend a mock DID is a real decentralized identity unless the implementation actually provides the corresponding functionality.
+
+---
+
+23. BLOCKCHAIN
+
+Create minimal smart contracts.
+
+IdentityRegistry.sol
+
+Responsible for:
+
+- Registering identity proofs
+- Mapping DID/hash references
+- Basic identity status
+
+CredentialStatus.sol
+
+Responsible for:
+
+- Credential status
+- Revocation
+- Status verification
+
+Do not store:
+
+- Names
+- Emails
+- Government IDs
+- Documents
+- Passwords
+- Private keys
+
+on-chain.
+
+Only use hashes/proofs/references where appropriate.
+
+---
+
+24. ERROR HANDLING
+
+Every major action needs:
+
+Loading
+
+Skeleton/spinner
+
+Success
+
+Clear confirmation
+
+Error
+
+Human-readable explanation
+
+Empty
+
+Helpful empty state
+
+Example:
+
+No credentials yet.
+
+Add your first credential to start building
+your decentralized identity.
+
+---
+
+25. RESPONSIVE DESIGN
+
+Desktop:
+
+- Sidebar navigation
+- Main content area
+- Comfortable max-width
+
+Tablet:
+
+- Collapsible sidebar
+
+Mobile:
+
+- Bottom navigation
+
+Mobile navigation:
+
+Home
+Vault
+Verify
+Identity
+
+Make every screen fully usable on mobile.
+
+---
+
+26. ANIMATIONS
+
+Use subtle animations only.
+
+Allowed:
+
+- Button hover
+- Card hover
+- Page transitions
+- Toast notifications
+- Verification success animation
+- Copy DID feedback
+- Vault lock/unlock animation
+- Loading skeletons
+
+Do NOT use:
+
+- Excessive particles
+- Neon effects
+- Giant animations
+- Floating blobs
+- Constant movement
+
+---
+
+27. ACCESSIBILITY
+
+Implement:
+
+- Keyboard navigation
+- Proper labels
+- Semantic HTML
+- Focus states
+- Accessible dialogs
+- Sufficient contrast
+- Screen-reader-friendly controls
+
+---
+
+28. TESTING
+
+Create tests for:
+
+Backend
+
+- Authentication
+- Authorization
+- Credential creation
+- Credential verification
+- Vault access
+- Encryption-related flows
+
+Frontend
+
+- Login
+- Registration
+- Dashboard
+- Credential management
+- Verification flow
+
+Security
+
+Test:
+
+- Unauthorized access
+- Invalid credentials
+- Expired credentials
+- Revoked credentials
+- Invalid signatures
+- Tampered credential data
+
+---
+
+29. DOCUMENTATION
+
+README should include:
+
+- Project overview
+- Features
+- Architecture
+- Tech stack
+- Setup instructions
+- Environment variables
+- Database setup
+- Blockchain setup
+- API overview
+- Security model
+- DID/VC explanation
+- Testing instructions
+
+Also create:
+
+docs/architecture.md
+docs/security.md
+
+Explain why sensitive information is kept off-chain and how encryption works.
+
+---
+
+30. DEVELOPMENT ORDER
+
+Build the application in this order:
+
+Phase 1
+
+Project setup
+
+Phase 2
+
+Frontend layout and design system
+
+Phase 3
+
+Authentication
+
+Phase 4
+
+Dashboard
+
+Phase 5
+
+Identity/DID functionality
+
+Phase 6
+
+Credential management
+
+Phase 7
+
+Encrypted vault
+
+Phase 8
+
+Credential verification
+
+Phase 9
+
+Blockchain integration
+
+Phase 10
+
+Security hardening
+
+Phase 11
+
+Testing
+
+Phase 12
+
+Documentation
+
+Do not skip directly to blockchain before the basic application works.
+
+---
+
+31. FINAL QUALITY BAR
+
+Before considering IDone complete, verify:
+
+- UI is responsive
+- No gradients exist anywhere
+- No generic AI dashboard styling
+- No unnecessary folders
+- Authentication works
+- Identity creation works
+- Vault functionality works
+- Credentials can be added and viewed
+- Verification works
+- Encryption is implemented correctly
+- Private keys are protected
+- Blockchain integration is meaningful
+- Errors are handled
+- Loading states exist
+- Mobile UI works
+- Tests exist
+- README is complete
+
+The final product should feel like a real cybersecurity identity product, not a college-project template.
+
+Build IDone with clean code, sensible architecture, strong security practices, and a polished but restrained UI.

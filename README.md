@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/hero_animated.svg" alt="IDone Animated Hero Banner" width="100%">
+  <img src="docs/assets/hero_banner.svg" alt="IDone Animated Hero Banner" width="100%">
 </p>
 
 ---
@@ -167,7 +167,7 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Full Horizontal Brandmark** | [`logo-full-dark.png`](docs/assets/logo-full-dark.png) | [`logo-full-white.png`](docs/assets/logo-full-white.png) | Complete horizontal lockup with "Decentralized Identity Vault" descriptor (452×260) |
 | **Primary Brand Lockup** | [`logo-main-dark.png`](docs/assets/logo-main-dark.png) | [`logo-main-white.png`](docs/assets/logo-main-white.png) | Core brand mark with typographic "IDone." wordmark (452×230) |
 | **Biometric Shield Icon** | [`logo-mark-dark.png`](docs/assets/logo-mark-dark.png) | [`logo-mark.png`](docs/assets/logo-mark.png) | Compact biometric keyhole shield for favicons, Dynamic Island, and avatar chips (166×221) |
-| **Animated Hero Banner** | [`hero_animated.svg`](docs/assets/hero_animated.svg) | [`hero_animated.svg`](docs/assets/hero_animated.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
+| **Animated Hero Banner** | [`hero_banner.svg`](docs/assets/hero_banner.svg) | [`hero_banner.svg`](docs/assets/hero_banner.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
 | **Cryptographic Pipeline** | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | Dynamic data stream animation from Client Vault to FastAPI Signer to EVM Anchors |
 | **macOS Terminal Runner** | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | Interactive Apple Terminal animation simulating test execution and launcher |
 

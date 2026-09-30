@@ -131,54 +131,56 @@ export default function VaultPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-offwhite-50">
+    <div className="flex min-h-screen flex-col bg-[#F5F5F7] dark:bg-[#000000] text-neutral-900 dark:text-white transition-colors duration-300">
       <title>Zero-Knowledge Encrypted Locker | IDone</title>
       <Navbar user={user} />
 
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 md:p-8 max-w-6xl">
+        <main className="flex-1 p-6 md:p-8 max-w-6xl min-w-0">
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
                 Zero-Knowledge Storage
               </span>
-              <h1 className="text-2xl font-extrabold tracking-tight text-navy-900 mt-0.5">
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white mt-0.5">
                 Encrypted Vault Locker
               </h1>
             </div>
 
             <button
               onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center space-x-1.5 rounded-lg bg-navy-900 px-4 py-2 text-xs font-semibold text-white hover:bg-navy-800 transition-colors shadow-sm"
+              className="apple-btn-primary px-4 py-2 text-xs shadow-xs"
             >
-              <Plus className="h-4 w-4 text-trust-600" />
+              <Plus className="h-4 w-4 mr-1.5" />
               <span>Add Encrypted Item</span>
             </button>
           </div>
 
-          {/* Security Banner */}
-          <div className="rounded-xl border border-trust-100 bg-trust-50 p-4 mb-6 flex items-start space-x-3 text-xs text-trust-900">
-            <Lock className="h-4 w-4 text-trust-600 flex-shrink-0 mt-0.5" />
-            <div>
-              <span className="font-bold">Client-Side Authenticated AES-256-GCM:</span> All locker
-              payloads are encrypted directly in your browser prior to transmission. The backend
-              never sees your plaintext records.
+          {/* Security Banner with Emerald Glass Accent */}
+          <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.05] dark:bg-emerald-500/[0.1] backdrop-blur-md p-4 mb-6 flex items-start space-x-3 text-xs text-neutral-800 dark:text-neutral-200">
+            <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-[#34C759] to-[#30D158] text-white shadow-xs">
+              <Lock className="h-3.5 w-3.5" />
+            </div>
+            <div className="leading-relaxed">
+              <span className="font-bold text-emerald-700 dark:text-emerald-300">Client-Side Authenticated AES-256-GCM:</span> All locker
+              payloads are encrypted directly in your browser with random unique IVs prior to transmission. The backend
+              never sees or stores your plaintext records.
             </div>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex items-center space-x-1 border-b border-offwhite-200 pb-3 mb-6 overflow-x-auto">
+          {/* Apple Segmented Category Tabs */}
+          <div className="flex items-center space-x-1.5 p-1 rounded-2xl bg-black/[0.04] dark:bg-white/[0.06] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06] mb-7 w-fit overflow-x-auto">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`btn-press rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
+                className={`rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   selectedCategory === cat
-                    ? "bg-navy-900 text-white shadow-xs"
-                    : "text-slate-600 hover:bg-offwhite-100 hover:text-navy-900"
+                    ? "bg-[#34C759] text-white shadow-xs"
+                    : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
                 }`}
               >
                 {cat}
@@ -189,14 +191,16 @@ export default function VaultPage() {
           {/* Vault Items List */}
           {loading ? (
             <div className="space-y-3 animate-pulse">
-              <div className="h-20 bg-white rounded-xl border border-offwhite-200"></div>
-              <div className="h-20 bg-white rounded-xl border border-offwhite-200"></div>
+              <div className="h-20 bg-white dark:bg-[#161618] rounded-2xl border border-black/[0.06] dark:border-white/[0.08]"></div>
+              <div className="h-20 bg-white dark:bg-[#161618] rounded-2xl border border-black/[0.06] dark:border-white/[0.08]"></div>
             </div>
           ) : items.length === 0 ? (
-            <div className="animate-fade-slide-up rounded-xl border border-dashed border-offwhite-200 bg-white p-12 text-center shadow-xs">
-              <Lock className="h-10 w-10 text-slate-400 mx-auto mb-2" />
-              <h3 className="text-base font-bold text-navy-900">No Encrypted Items in {selectedCategory}</h3>
-              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+            <div className="apple-card p-12 text-center border-dashed border-black/[0.08] dark:border-white/[0.1]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-[#34C759] mx-auto mb-3">
+                <Lock className="h-6 w-6" />
+              </div>
+              <h3 className="text-base font-bold text-neutral-900 dark:text-white">No Encrypted Items in {selectedCategory}</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 max-w-sm mx-auto">
                 Store sensitive recovery phrases, legal records, or confidential notes with zero plaintext exposure.
               </p>
             </div>
@@ -205,21 +209,21 @@ export default function VaultPage() {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="card-interactive animate-fade-slide-up rounded-xl border border-offwhite-200 bg-white p-4 shadow-card hover:border-slate-300"
+                  className="apple-card p-5 transition-all duration-200 hover:border-emerald-500/30 group"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-900 text-white flex-shrink-0 shadow-xs">
-                        <Lock className="h-4 w-4 text-trust-600" />
+                    <div className="flex items-start space-x-3.5">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#34C759] to-[#30D158] text-white flex-shrink-0 shadow-sm shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+                        <Lock className="h-4 w-4" />
                       </div>
                       <div>
                         <div className="flex items-center space-x-2">
-                          <h4 className="text-sm font-bold text-navy-900">{item.name}</h4>
-                          <span className="rounded bg-offwhite-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
+                          <h4 className="text-sm font-bold text-neutral-900 dark:text-white">{item.name}</h4>
+                          <span className="rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 px-2.5 py-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
                             {item.category}
                           </span>
                         </div>
-                        <p className="text-[11px] text-slate-400 mt-0.5 font-mono">
+                        <p className="text-[11px] text-neutral-400 dark:text-neutral-500 mt-0.5 font-mono">
                           IV: {item.iv.slice(0, 16)}... • Added{" "}
                           {new Date(item.created_at).toLocaleDateString()}
                         </p>

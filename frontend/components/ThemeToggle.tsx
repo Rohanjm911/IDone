@@ -40,7 +40,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ showLabel = false, cla
     return (
       <button
         type="button"
-        className={`btn-press inline-flex h-9 w-9 items-center justify-center rounded-lg border border-offwhite-200 bg-white text-slate-500 opacity-60 ${className}`}
+        className={`inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.03] dark:bg-white/[0.06] opacity-60 ${className}`}
         aria-label="Toggle Theme"
       >
         <span className="h-4 w-4" />
@@ -54,23 +54,21 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ showLabel = false, cla
     <button
       type="button"
       onClick={toggleTheme}
-      className={`btn-press inline-flex items-center justify-center gap-2 rounded-lg border transition-colors ${
-        isDark
-          ? "border-[#2E2E2E] bg-[#161616] text-amber-400 hover:bg-[#222222] hover:text-amber-300 hover:border-[#3E3E3E]"
-          : "border-offwhite-200 bg-white text-slate-600 hover:bg-offwhite-100 hover:text-navy-900 hover:border-slate-300"
-      } ${showLabel ? "px-3 py-1.5 text-xs font-semibold" : "h-9 w-9"} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.03] dark:bg-white/[0.06] text-neutral-700 dark:text-neutral-300 hover:bg-black/[0.07] dark:hover:bg-white/[0.12] transition-all duration-200 active:scale-95 ${
+        showLabel ? "px-3.5 py-1.5 text-xs font-medium" : "h-8 w-8"
+      } ${className}`}
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
       aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
       data-testid="theme-toggle-button"
     >
       {isDark ? (
-        <Sun className="h-4 w-4 transition-transform duration-200 rotate-0 hover:rotate-45" />
+        <Sun className="h-4 w-4 text-[#FF9F0A] transition-transform duration-300 rotate-0 hover:rotate-90" />
       ) : (
-        <Moon className="h-4 w-4 transition-transform duration-200 -rotate-12 hover:rotate-0" />
+        <Moon className="h-4 w-4 text-neutral-700 transition-transform duration-300 -rotate-12 hover:rotate-0" />
       )}
       {showLabel && (
         <span className="text-xs font-medium">
-          {isDark ? "Light Mode" : "Dark Mode"}
+          {isDark ? "Light" : "Dark"}
         </span>
       )}
     </button>

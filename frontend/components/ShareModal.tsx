@@ -74,16 +74,24 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy-900/60 p-4 animate-fade-in">
-      <div className="relative w-full max-w-lg rounded-xl bg-white p-6 shadow-modal border border-offwhite-200 animate-scale-in">
-        <div className="flex items-center justify-between pb-3 border-b border-offwhite-200">
-          <div className="flex items-center space-x-2">
-            <Share2 className="h-4 w-4 text-trust-600" />
-            <h3 className="text-sm font-bold text-navy-900">Selective Credential Disclosure</h3>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xl p-4 animate-fade-in">
+      <div className="apple-glass-card relative w-full max-w-lg p-6 md:p-7 shadow-2xl animate-scale-in border border-black/[0.08] dark:border-white/[0.1] overflow-hidden">
+        {/* Top Rainbow Accent Ribbon */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C7BE] via-[#0071E3] to-[#AF52DE]"></div>
+
+        <div className="flex items-center justify-between pb-4 border-b border-black/[0.05] dark:border-white/[0.07]">
+          <div className="flex items-center space-x-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-[#00C7BE] to-[#64D2FF] text-white shadow-xs">
+              <Share2 className="h-4 w-4" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-white">Selective Credential Disclosure</h3>
+              <p className="text-[10px] text-neutral-500 dark:text-neutral-400">Zero-knowledge attribute presentation</p>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="btn-press rounded p-1 text-slate-400 hover:bg-offwhite-100 hover:text-navy-900"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.1] transition-all"
           >
             <X className="h-4 w-4" />
           </button>
@@ -91,16 +99,16 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
 
         {!shareResult ? (
           <form onSubmit={handleShare} className="mt-4 space-y-4">
-            <div>
-              <p className="text-xs text-slate-500">
-                You are preparing a selective disclosure proof for:
+            <div className="rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] p-3 border border-black/[0.04] dark:border-white/[0.06]">
+              <p className="text-[10px] uppercase font-bold text-neutral-400 dark:text-neutral-500">
+                Source Verifiable Credential
               </p>
-              <p className="text-sm font-bold text-navy-900 mt-0.5">{credential.title}</p>
+              <p className="text-xs font-bold text-neutral-900 dark:text-white mt-0.5">{credential.title}</p>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-navy-900 mb-1">
-                Verifier Email
+              <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
+                Recipient / Verifier Email
               </label>
               <input
                 type="email"
@@ -108,41 +116,41 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
                 value={recipientEmail}
                 onChange={(e) => setRecipientEmail(e.target.value)}
                 placeholder="verifier@organization.com"
-                className="w-full rounded-lg border border-offwhite-200 px-3 py-2 text-xs text-navy-900 focus:border-trust-600 focus:outline-none"
+                className="w-full rounded-xl border border-black/[0.1] dark:border-white/[0.12] bg-black/[0.02] dark:bg-white/[0.04] px-3.5 py-2 text-xs text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#0071E3]/40 focus:border-[#0071E3] transition-all"
               />
             </div>
 
             {/* Selectable Claims */}
             <div>
-              <label className="block text-xs font-semibold text-navy-900 mb-1.5">
-                Claims to Disclose (Selective Disclosure)
+              <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1.5">
+                Claims to Disclose (Zero-Knowledge Selection)
               </label>
-              <div className="space-y-1.5 rounded-lg border border-offwhite-200 bg-offwhite-50 p-3 max-h-40 overflow-y-auto">
+              <div className="space-y-1.5 rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.03] p-3 max-h-40 overflow-y-auto">
                 {availableFields.map((field) => (
                   <label
                     key={field}
-                    className="flex items-center space-x-2 text-xs text-navy-900 cursor-pointer"
+                    className="flex items-center space-x-2.5 text-xs text-neutral-800 dark:text-neutral-200 cursor-pointer p-1.5 rounded-lg hover:bg-black/[0.03] dark:hover:bg-white/[0.05] transition-colors"
                   >
                     <input
                       type="checkbox"
                       checked={selectedFields.includes(field)}
                       onChange={() => toggleField(field)}
-                      className="rounded border-offwhite-200 text-trust-600 focus:ring-trust-600"
+                      className="rounded-md border-black/[0.15] dark:border-white/[0.2] text-[#0071E3] focus:ring-[#0071E3] h-4 w-4"
                     />
-                    <span className="font-mono text-xs">{field}</span>
+                    <span className="font-mono text-xs font-medium">{field}</span>
                   </label>
                 ))}
               </div>
             </div>
 
             {/* Privacy Redaction Toggle */}
-            <div className="rounded-lg border border-offwhite-200 p-3 bg-white">
+            <div className="rounded-2xl border border-black/[0.06] dark:border-white/[0.08] p-3.5 bg-black/[0.02] dark:bg-white/[0.03]">
               <label className="flex items-center justify-between cursor-pointer">
                 <div>
-                  <span className="text-xs font-semibold text-navy-900 block">
+                  <span className="text-xs font-bold text-neutral-900 dark:text-white block">
                     Redact Sensitive PII
                   </span>
-                  <span className="text-[11px] text-slate-500">
+                  <span className="text-[11px] text-neutral-500 dark:text-neutral-400">
                     Omit national ID, SSN, and birth date from proof
                   </span>
                 </div>
@@ -150,25 +158,29 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
                   type="checkbox"
                   checked={!includePersonal}
                   onChange={(e) => setIncludePersonal(!e.target.checked)}
-                  className="rounded border-offwhite-200 text-trust-600 focus:ring-trust-600 h-4 w-4"
+                  className="rounded-md border-black/[0.15] dark:border-white/[0.2] text-[#34C759] focus:ring-[#34C759] h-4 w-4"
                 />
               </label>
             </div>
 
-            {error && <div className="text-xs font-semibold text-alert-600">{error}</div>}
+            {error && (
+              <div className="text-xs font-semibold text-[#FF3B30] dark:text-[#FF453A] bg-[#FF3B30]/10 p-2.5 rounded-xl border border-[#FF3B30]/20">
+                {error}
+              </div>
+            )}
 
-            <div className="flex justify-end space-x-2 pt-2">
+            <div className="flex justify-end space-x-2.5 pt-2">
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-lg border border-offwhite-200 px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-offwhite-100"
+                className="apple-btn-secondary px-4 py-2 text-xs"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={submitting}
-                className="rounded-lg bg-trust-600 px-4 py-2 text-xs font-semibold text-white hover:bg-trust-700 disabled:opacity-50 transition-colors"
+                className="apple-btn-primary px-5 py-2 text-xs shadow-xs disabled:opacity-50"
               >
                 {submitting ? "Generating Proof..." : "Generate Shared Proof"}
               </button>
@@ -176,18 +188,20 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
           </form>
         ) : (
           <div className="mt-4 space-y-4">
-            <div className="rounded-lg bg-success-50 p-4 border border-success-100 text-center">
-              <ShieldCheck className="h-8 w-8 text-success-600 mx-auto mb-2" />
-              <h4 className="text-sm font-bold text-success-800">
+            <div className="rounded-2xl bg-emerald-500/10 p-5 border border-emerald-500/20 text-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#34C759] to-[#30D158] text-white mx-auto mb-2 shadow-xs">
+                <ShieldCheck className="h-6 w-6" />
+              </div>
+              <h4 className="text-sm font-bold text-emerald-800 dark:text-emerald-300">
                 Verifiable Presentation Compiled
               </h4>
-              <p className="text-xs text-success-700 mt-1">
+              <p className="text-xs text-emerald-700 dark:text-emerald-400 mt-0.5">
                 Authorized for {shareResult.recipient_email}
               </p>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-1">
+              <label className="block text-xs font-semibold text-neutral-500 dark:text-neutral-400 mb-1">
                 Presentation Verification Token
               </label>
               <div className="flex items-center space-x-2">
@@ -195,17 +209,17 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
                   type="text"
                   readOnly
                   value={shareResult.share_token}
-                  className="w-full rounded-lg border border-offwhite-200 bg-offwhite-50 px-3 py-2 font-mono text-xs text-navy-900"
+                  className="w-full rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] px-3.5 py-2 font-mono text-xs text-neutral-900 dark:text-white"
                 />
                 <button
                   onClick={copyToken}
-                  className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-offwhite-200 bg-white hover:bg-offwhite-100 transition-colors"
+                  className="apple-btn-secondary inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
                   title="Copy Token"
                 >
                   {copied ? (
-                    <Check className="h-4 w-4 text-success-600" />
+                    <Check className="h-4 w-4 text-[#34C759] dark:text-[#30D158]" />
                   ) : (
-                    <Copy className="h-4 w-4 text-slate-600" />
+                    <Copy className="h-4 w-4" />
                   )}
                 </button>
               </div>
@@ -214,7 +228,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ credential, onClose }) =
             <div className="flex justify-end pt-2">
               <button
                 onClick={onClose}
-                className="rounded-lg bg-navy-900 px-4 py-2 text-xs font-semibold text-white hover:bg-navy-800"
+                className="apple-btn-primary px-6 py-2 text-xs shadow-xs"
               >
                 Done
               </button>

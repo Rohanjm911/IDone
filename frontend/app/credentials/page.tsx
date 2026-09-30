@@ -158,21 +158,21 @@ export default function CredentialsPage() {
   });
 
   return (
-    <div className="flex min-h-screen flex-col bg-offwhite-50">
+    <div className="flex min-h-screen flex-col bg-[#F5F5F7] dark:bg-[#000000] text-neutral-900 dark:text-white transition-colors duration-300">
       <title>Verifiable Credentials Hub | IDone</title>
       <Navbar user={user} />
 
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 md:p-8 max-w-7xl">
+        <main className="flex-1 p-6 md:p-8 max-w-7xl min-w-0">
           {/* Header & Controls */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                 W3C VC Data Model v1.1
               </span>
-              <h1 className="text-2xl font-extrabold tracking-tight text-navy-900 mt-0.5">
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white mt-0.5">
                 Verifiable Credentials Hub
               </h1>
             </div>
@@ -180,41 +180,42 @@ export default function CredentialsPage() {
             <div className="flex items-center space-x-2.5">
               <button
                 onClick={() => setShowImportModal(true)}
-                className="btn-press inline-flex items-center space-x-1.5 rounded-lg border border-offwhite-200 bg-white px-3.5 py-2 text-xs font-semibold text-navy-900 hover:bg-offwhite-100 hover:border-slate-300 shadow-xs"
+                className="apple-btn-secondary px-4 py-2 text-xs"
               >
-                <FileDown className="h-4 w-4 text-trust-600" />
+                <FileDown className="h-4 w-4 mr-1.5 text-[#0071E3] dark:text-[#0A84FF]" />
                 <span>Import JSON-LD</span>
               </button>
 
               <button
                 onClick={() => setShowIssueModal(true)}
-                className="btn-press inline-flex items-center space-x-1.5 rounded-lg bg-navy-900 px-3.5 py-2 text-xs font-semibold text-white hover:bg-navy-800 shadow-xs"
+                className="apple-btn-primary px-4 py-2 text-xs shadow-xs"
               >
-                <Plus className="h-4 w-4 text-trust-600" />
+                <Plus className="h-4 w-4 mr-1.5" />
                 <span>Issue Credential</span>
               </button>
             </div>
           </div>
 
-          {/* Status Tabs */}
-          <div className="flex items-center space-x-1 border-b border-offwhite-200 pb-3 mb-6 overflow-x-auto">
-            {["ALL", "VALID", "REVOKED", "EXPIRED"].map((tab) => (
+          {/* Apple Segmented Status Tabs */}
+          <div className="flex items-center space-x-1.5 p-1 rounded-2xl bg-black/[0.04] dark:bg-white/[0.06] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06] mb-7 w-fit overflow-x-auto">
+            {[
+              { id: "ALL", label: "All Credentials", count: credentials.length, color: "bg-[#0071E3] text-white" },
+              { id: "VALID", label: "Valid", count: credentials.filter((c) => c.status === "VALID").length, color: "bg-[#34C759] text-white" },
+              { id: "REVOKED", label: "Revoked", count: credentials.filter((c) => c.status === "REVOKED").length, color: "bg-[#FF3B30] text-white" },
+              { id: "EXPIRED", label: "Expired", count: credentials.filter((c) => c.status === "EXPIRED").length, color: "bg-[#FF9500] text-white" },
+            ].map((tab) => (
               <button
-                key={tab}
-                onClick={() => setFilteredStatus(tab)}
-                className={`btn-press rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                  filteredStatus === tab
-                    ? "bg-navy-900 text-white shadow-xs"
-                    : "text-slate-600 hover:bg-offwhite-100 hover:text-navy-900"
+                key={tab.id}
+                onClick={() => setFilteredStatus(tab.id)}
+                className={`flex items-center space-x-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                  filteredStatus === tab.id
+                    ? `${tab.color} shadow-xs`
+                    : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
                 }`}
               >
-                {tab === "ALL" ? "All Credentials" : tab.charAt(0) + tab.slice(1).toLowerCase()}
-                <span className="ml-1.5 text-[10px] opacity-75 font-mono">
-                  (
-                  {tab === "ALL"
-                    ? credentials.length
-                    : credentials.filter((c) => c.status === tab).length}
-                  )
+                <span>{tab.label}</span>
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-black/10 dark:bg-white/20">
+                  {tab.count}
                 </span>
               </button>
             ))}
@@ -223,15 +224,17 @@ export default function CredentialsPage() {
           {/* Credential Cards Grid */}
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
-              <div className="h-60 bg-white rounded-xl border border-offwhite-200"></div>
-              <div className="h-60 bg-white rounded-xl border border-offwhite-200"></div>
-              <div className="h-60 bg-white rounded-xl border border-offwhite-200"></div>
+              <div className="h-60 bg-white dark:bg-[#161618] rounded-2xl border border-black/[0.06] dark:border-white/[0.08]"></div>
+              <div className="h-60 bg-white dark:bg-[#161618] rounded-2xl border border-black/[0.06] dark:border-white/[0.08]"></div>
+              <div className="h-60 bg-white dark:bg-[#161618] rounded-2xl border border-black/[0.06] dark:border-white/[0.08]"></div>
             </div>
           ) : filteredCredentials.length === 0 ? (
-            <div className="rounded-xl border border-dashed border-offwhite-200 bg-white p-12 text-center">
-              <Award className="h-10 w-10 text-slate-400 mx-auto mb-2" />
-              <h3 className="text-base font-bold text-navy-900">No Credentials in this View</h3>
-              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+            <div className="apple-card p-12 text-center border-dashed border-black/[0.08] dark:border-white/[0.1]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500 mx-auto mb-3">
+                <Award className="h-6 w-6" />
+              </div>
+              <h3 className="text-base font-bold text-neutral-900 dark:text-white">No Credentials in this View</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 max-w-sm mx-auto">
                 Issue a signed cryptographic credential or import an existing verifiable JSON-LD file.
               </p>
             </div>

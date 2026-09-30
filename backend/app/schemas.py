@@ -1,6 +1,6 @@
 import datetime
 from typing import Optional, List, Dict, Any
-from pydantic import BaseModel, EmailStr, Field, field_validator, ConfigDict
+from pydantic import BaseModel, EmailStr, Field, field_validator, model_validator, ConfigDict
 
 # ==============================================================================
 # Authentication & User Schemas
@@ -20,8 +20,24 @@ class UserRegister(BaseModel):
         return v
 
 class UserLogin(BaseModel):
-    email: EmailStr
+    email: Optional[EmailStr] = None
+    username: Optional[str] = None
     password: str
+
+    @model_validator(mode="before")
+    @classmethod
+    def check_email_or_username(cls, data: Any):
+        if isinstance(data, dict):
+            if not data.get("email") and data.get("username"):
+                data["email"] = data["username"]
+        return data
+
+    @field_validator("email")
+    @classmethod
+    def validate_email_present(cls, v):
+        if not v:
+            raise ValueError("Email or username is required")
+        return v
 
 class UserResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)

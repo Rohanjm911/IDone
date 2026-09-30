@@ -28,6 +28,12 @@ export default function RootLayout({
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -46,7 +52,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="h-full bg-offwhite-50 text-navy-900 dark:bg-[#0A0A0A] dark:text-[#F5F5F5] antialiased transition-colors duration-200">
+      <body className="h-full bg-[#F5F5F7] dark:bg-[#000000] text-[#1D1D1F] dark:text-[#F5F5F7] font-sans antialiased selection:bg-[#0071E3]/20 selection:text-[#0071E3] dark:selection:bg-[#0A84FF]/30 dark:selection:text-[#64D2FF]">
         {children}
       </body>
     </html>

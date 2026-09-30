@@ -25,6 +25,7 @@ export interface Identity {
   status: string;
   verification_method: string;
   blockchain_tx_hash?: string;
+  raw_did_document?: string;
   created_at: string;
 }
 
@@ -140,7 +141,15 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     try {
       const errJson = await res.json();
       if (errJson.detail) {
-        errorDetail = typeof errJson.detail === "string" ? errJson.detail : JSON.stringify(errJson.detail);
+        if (typeof errJson.detail === "string") {
+          errorDetail = errJson.detail;
+        } else if (Array.isArray(errJson.detail)) {
+          errorDetail = errJson.detail
+            .map((item: any) => item.msg || item.message || JSON.stringify(item))
+            .join(", ");
+        } else {
+          errorDetail = JSON.stringify(errJson.detail);
+        }
       }
     } catch {
       // ignore
@@ -167,12 +176,14 @@ export async function registerUser(payload: {
 }
 
 export async function loginUser(payload: {
-  email: string;
+  email?: string;
+  username?: string;
   password: string;
 }): Promise<AuthResponse> {
+  const email = payload.email || payload.username || "";
   const res = await request<AuthResponse>("/auth/login", {
     method: "POST",
-    body: JSON.stringify(payload),
+    body: JSON.stringify({ email, password: payload.password }),
   });
   setAuthToken(res.access_token);
   return res;

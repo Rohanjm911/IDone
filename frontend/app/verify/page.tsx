@@ -15,6 +15,7 @@ import { Navbar } from "@/components/Navbar";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { VerificationResultCard } from "@/components/VerificationResultCard";
 import { verifyCredentialData, VerificationResult } from "@/lib/api";
+import { Logo } from "@/components/Logo";
 
 const SAMPLE_VALID = {
   "@context": [
@@ -100,17 +101,14 @@ export default function VerifyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-offwhite-50 flex flex-col justify-between">
+    <div className="min-h-screen bg-[#F5F5F7] dark:bg-[#000000] text-neutral-900 dark:text-white flex flex-col justify-between transition-colors duration-300">
       <title>Cryptographic Verifier | IDone</title>
-      {/* Top Bar */}
-      <header className="border-b border-offwhite-200 bg-white">
+      {/* Apple Frosted Glass Header */}
+      <header className="sticky top-0 z-40 apple-glass transition-all duration-300">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-900 text-white">
-              <Shield className="h-5 w-5 text-trust-600" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-navy-900">IDone</span>
-            <span className="rounded bg-trust-50 px-2 py-0.5 text-xs font-semibold text-trust-700 border border-trust-100">
+          <Link href="/" className="inline-flex items-center group">
+            <Logo variant="main" size="sm" priority />
+            <span className="ml-2.5 rounded-full bg-cyan-500/10 dark:bg-cyan-500/15 px-2.5 py-0.5 text-[10px] font-bold text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
               Verifier
             </span>
           </Link>
@@ -118,13 +116,13 @@ export default function VerifyPage() {
           <div className="flex items-center space-x-3">
             <Link
               href="/dashboard"
-              className="text-xs font-semibold text-navy-900 hover:text-trust-600 transition-colors"
+              className="text-xs font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
               Dashboard
             </Link>
             <Link
               href="/login"
-              className="rounded-lg bg-navy-900 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-navy-800 transition-colors"
+              className="apple-btn-primary px-3.5 py-1.5 text-xs shadow-xs"
             >
               Enter Vault
             </Link>
@@ -136,68 +134,71 @@ export default function VerifyPage() {
       {/* Main Area */}
       <main className="mx-auto max-w-5xl flex-1 px-6 py-10 w-full">
         <div className="text-center mb-8">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
             Independent Audit Engine
           </span>
-          <h1 className="text-3xl font-extrabold text-navy-900 mt-1">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white mt-1">
             Cryptographic Credential Verification
           </h1>
-          <p className="text-xs text-slate-600 max-w-xl mx-auto mt-2">
+          <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto mt-2 leading-relaxed">
             Verify Ed25519 digital signatures, canonical JSON hashes (RFC 8785), W3C JSON-LD
             contexts, and on-chain revocation states without relying on centralized intermediaries.
           </p>
         </div>
 
-        {/* Demo Preset Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-          <span className="text-xs font-semibold text-slate-500 mr-1">Load Demo Payload:</span>
+        {/* Apple Demo Preset Buttons with Vibrant Accent Tints */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-7">
+          <span className="text-xs font-semibold text-neutral-400 dark:text-neutral-500 mr-1">Load Demo Payload:</span>
           <button
             onClick={() => loadSample(SAMPLE_VALID)}
-            className="btn-press rounded-lg border border-offwhite-200 bg-white px-3 py-1.5 text-xs font-semibold text-navy-900 hover:bg-offwhite-100 hover:border-slate-300 shadow-xs"
+            className="flex items-center space-x-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 transition-all shadow-xs"
           >
-            Valid Degree (Valid)
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            <span>Valid Degree (Verified)</span>
           </button>
           <button
             onClick={() => loadSample(SAMPLE_TAMPERED)}
-            className="btn-press rounded-lg border border-alert-200 bg-alert-50 px-3 py-1.5 text-xs font-semibold text-alert-700 hover:bg-alert-100 shadow-xs"
+            className="flex items-center space-x-1.5 rounded-full border border-rose-500/30 bg-rose-500/10 px-3.5 py-1.5 text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-all shadow-xs"
           >
-            Tampered Payload (Attack Simulation)
+            <span className="h-1.5 w-1.5 rounded-full bg-rose-500"></span>
+            <span>Tampered Payload (Attack Simulation)</span>
           </button>
           <button
             onClick={() => loadSample(SAMPLE_EXPIRED)}
-            className="btn-press rounded-lg border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700 hover:bg-amber-100 shadow-xs"
+            className="flex items-center space-x-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-all shadow-xs"
           >
-            Expired Credential (Time Drift)
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+            <span>Expired Credential (Time Drift)</span>
           </button>
         </div>
 
         {/* Verification Form Card */}
-        <div className="card-interactive animate-fade-slide-up rounded-xl border border-offwhite-200 bg-white p-6 shadow-card mb-8">
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-xs font-bold uppercase tracking-wider text-navy-900">
+        <div className="apple-card p-6 md:p-8 mb-8 relative overflow-hidden group">
+          <div className="flex items-center justify-between mb-3">
+            <label className="text-xs font-bold uppercase tracking-wider text-neutral-900 dark:text-white">
               W3C Verifiable Credential JSON Payload
             </label>
-            <span className="text-[11px] text-slate-400 font-mono">JSON-LD 1.1 Compliant</span>
+            <span className="text-[11px] text-cyan-600 dark:text-cyan-400 font-mono font-semibold">JSON-LD 1.1 Compliant</span>
           </div>
 
           <textarea
             rows={12}
             value={jsonInput}
             onChange={(e) => setJsonInput(e.target.value)}
-            className="w-full rounded-lg border border-offwhite-200 p-3.5 font-mono text-xs text-navy-900 focus:border-trust-600 focus:outline-none transition-colors"
+            className="w-full rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.03] p-4 font-mono text-xs text-neutral-900 dark:text-neutral-100 focus:border-[#0071E3] focus:outline-none transition-all leading-relaxed"
           />
 
           {error && (
-            <div className="mt-3 flex items-start space-x-2 rounded-lg bg-alert-50 p-3 text-xs text-alert-700 border border-alert-100 animate-fade-slide-down">
-              <AlertTriangle className="h-4 w-4 text-alert-600 flex-shrink-0 mt-0.5 animate-pop" />
+            <div className="mt-3 flex items-start space-x-2 rounded-2xl bg-rose-500/10 p-3.5 text-xs text-rose-600 dark:text-rose-400 border border-rose-500/20">
+              <AlertTriangle className="h-4 w-4 text-rose-500 flex-shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
           )}
 
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-5 flex items-center justify-between">
             <button
               onClick={() => setJsonInput("")}
-              className="btn-press text-xs font-semibold text-slate-500 hover:text-navy-900"
+              className="text-xs font-semibold text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
               Clear Editor
             </button>
@@ -205,9 +206,9 @@ export default function VerifyPage() {
             <button
               onClick={handleVerify}
               disabled={verifying}
-              className="btn-press inline-flex items-center space-x-2 rounded-lg bg-trust-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-trust-700 disabled:opacity-50 shadow-card"
+              className="apple-btn-primary px-6 py-2.5 text-xs font-bold shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 disabled:opacity-50"
             >
-              <Play className={`h-3.5 w-3.5 fill-current ${verifying ? "animate-spin" : ""}`} />
+              <Play className={`h-3.5 w-3.5 mr-1.5 fill-current ${verifying ? "animate-spin" : ""}`} />
               <span>{verifying ? "Executing Verification Engine..." : "Verify Cryptographic Proof"}</span>
             </button>
           </div>
@@ -221,8 +222,8 @@ export default function VerifyPage() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-offwhite-200 bg-white py-6 text-center text-xs text-slate-500">
+      {/* Apple Minimal Footer */}
+      <footer className="border-t border-black/[0.05] dark:border-white/[0.07] bg-white/50 dark:bg-black/40 py-6 text-center text-xs text-neutral-500 dark:text-neutral-400">
         IDone Independent Verification Engine • Nonce & Proof Checking • RFC 8785 Canonicalization
       </footer>
     </div>

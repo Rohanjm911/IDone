@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Shield, Lock, ArrowRight, AlertCircle } from "lucide-react";
+import { Shield, Lock, ArrowRight, AlertCircle, Sparkles } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { loginUser, registerUser } from "@/lib/api";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -22,32 +24,33 @@ export default function LoginPage() {
       await loginUser({ email, password });
       router.push("/dashboard");
     } catch (err: any) {
-      setError(err.message || "Failed to authenticate. Check credentials.");
+      setError(err.message || "Invalid email or master passphrase. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   const fillDemoAccount = async () => {
-    setEmail("alice@idone.vault");
-    setPassword("MasterPassword123!");
+    setEmail("alice@idone.crypto");
+    setPassword("MasterVaultKey#2026");
     setLoading(true);
     setError("");
     try {
-      // First try login, if not present create demo account
+      await loginUser({ email: "alice@idone.crypto", password: "MasterVaultKey#2026" });
+      router.push("/dashboard");
+    } catch {
       try {
-        await loginUser({ email: "alice@idone.vault", password: "MasterPassword123!" });
-      } catch {
         await registerUser({
           full_name: "Alice Nakamoto",
-          email: "alice@idone.vault",
-          password: "MasterPassword123!",
-          confirm_password: "MasterPassword123!",
+          email: "alice@idone.crypto",
+          password: "MasterVaultKey#2026",
+          confirm_password: "MasterVaultKey#2026"
         });
+        await loginUser({ email: "alice@idone.crypto", password: "MasterVaultKey#2026" });
+        router.push("/dashboard");
+      } catch (err: any) {
+        setError(err.message || "Demo sign-in failed.");
       }
-      router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Demo sign-in failed.");
     } finally {
       setLoading(false);
     }
@@ -58,35 +61,47 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-offwhite-50 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-[#F5F5F7] dark:bg-[#000000] px-4 py-12 transition-colors duration-300 relative overflow-hidden">
       <title>Sign In | IDone Vault</title>
-      <div className="w-full max-w-md space-y-6">
+
+      {/* Ambient Color Glow Orbs */}
+      <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-br from-[#0071E3]/20 via-[#AF52DE]/15 to-transparent blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-gradient-to-tl from-[#34C759]/15 via-[#00C7BE]/15 to-transparent blur-3xl pointer-events-none"></div>
+
+      {/* Floating Theme Switcher */}
+      <div className="absolute top-6 right-6 z-10">
+        <ThemeToggle />
+      </div>
+
+      <div className="w-full max-w-md space-y-6 relative z-10">
         {/* Brand Header */}
         <div className="text-center">
-          <Link href="/" className="inline-flex items-center space-x-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-900 text-white">
-              <Shield className="h-5 w-5 text-trust-600" />
-            </div>
-            <span className="text-2xl font-bold tracking-tight text-navy-900">IDone</span>
+          <Link href="/" className="inline-flex items-center justify-center">
+            <Logo variant="main" size="md" priority />
           </Link>
-          <h2 className="mt-4 text-xl font-bold text-navy-900">Unlock Sovereign Vault</h2>
-          <p className="mt-1 text-xs text-slate-500">
-            Sign in with your master passphrase to decrypt your decentralized identity.
+          <h2 className="mt-5 text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
+            Unlock Sovereign Vault
+          </h2>
+          <p className="mt-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+            Authenticate with your master passphrase to decrypt your local keys.
           </p>
         </div>
 
-        {/* Card */}
-        <div className="card-interactive animate-fade-slide-up rounded-xl border border-offwhite-200 bg-white p-7 shadow-card">
+        {/* Apple ID Style Card */}
+        <div className="apple-card-holo p-8 shadow-2xl relative overflow-hidden">
+          {/* Top Rainbow Accent Ribbon */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0071E3] via-[#AF52DE] to-[#34C759]"></div>
+
           {error && (
-            <div className="mb-5 flex items-start space-x-2 rounded-lg bg-alert-50 p-3 text-xs text-alert-700 border border-alert-100 animate-fade-slide-down">
-              <AlertCircle className="h-4 w-4 text-alert-600 flex-shrink-0 mt-0.5 animate-pop" />
+            <div className="mb-5 flex items-start space-x-2.5 rounded-2xl bg-rose-500/10 p-3.5 text-xs text-rose-600 dark:text-rose-400 border border-rose-500/20">
+              <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-navy-900 mb-1">
+              <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1.5">
                 Vault Account Email
               </label>
               <input
@@ -95,13 +110,13 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
-                className="w-full rounded-lg border border-offwhite-200 px-3.5 py-2.5 text-xs text-navy-900 focus:border-trust-600 focus:outline-none transition-colors"
+                className="w-full rounded-xl border border-black/[0.1] dark:border-white/[0.12] bg-black/[0.02] dark:bg-white/[0.04] px-4 py-2.5 text-xs text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#0071E3]/40 focus:border-[#0071E3] transition-all"
               />
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-1">
-                <label className="block text-xs font-semibold text-navy-900">
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                   Master Passphrase
                 </label>
               </div>
@@ -111,38 +126,42 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full rounded-lg border border-offwhite-200 px-3.5 py-2.5 text-xs text-navy-900 focus:border-trust-600 focus:outline-none transition-colors"
+                className="w-full rounded-xl border border-black/[0.1] dark:border-white/[0.12] bg-black/[0.02] dark:bg-white/[0.04] px-4 py-2.5 text-xs text-neutral-900 dark:text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#0071E3]/40 focus:border-[#0071E3] transition-all"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="btn-press flex w-full items-center justify-center space-x-2 rounded-lg bg-navy-900 py-2.5 text-xs font-semibold text-white hover:bg-navy-800 disabled:opacity-50 shadow-xs"
+              className="apple-btn-primary w-full py-3 text-xs shadow-md mt-2 disabled:opacity-50"
             >
-              <Lock className="h-3.5 w-3.5 text-trust-600" />
-              <span>{loading ? "Authenticating & Decrypting..." : "Decrypt & Enter Vault"}</span>
+              <Lock className="h-3.5 w-3.5 mr-1.5" />
+              <span>{loading ? "Decrypting Vault Keys..." : "Decrypt & Enter Vault"}</span>
             </button>
           </form>
 
           {/* Quick Demo Login */}
-          <div className="mt-5 pt-4 border-t border-offwhite-200">
+          <div className="mt-6 pt-5 border-t border-black/[0.05] dark:border-white/[0.07]">
             <button
               type="button"
               onClick={fillDemoAccount}
               disabled={loading}
-              className="btn-press flex w-full items-center justify-center space-x-2 rounded-lg border border-trust-100 bg-trust-50 py-2 text-xs font-semibold text-trust-700 hover:bg-trust-100"
+              className="apple-btn-secondary w-full py-2.5 text-xs text-[#0071E3] dark:text-[#0A84FF] hover:bg-[#0071E3]/10 dark:hover:bg-[#0A84FF]/10"
             >
+              <Sparkles className="h-3.5 w-3.5 mr-1.5" />
               <span>Instant Demo Sign-in (Alice Nakamoto)</span>
             </button>
           </div>
         </div>
 
         {/* Register Prompt */}
-        <p className="text-center text-xs text-slate-500">
-          Do not possess a sovereign vault yet?{" "}
-          <Link href="/register" className="font-semibold text-trust-600 hover:underline">
-            Initialize New Identity
+        <p className="text-center text-xs text-neutral-500 dark:text-neutral-400">
+          New to IDone?{" "}
+          <Link
+            href="/register"
+            className="font-semibold text-[#0071E3] dark:text-[#0A84FF] hover:underline"
+          >
+            Create a sovereign identity
           </Link>
         </p>
       </div>

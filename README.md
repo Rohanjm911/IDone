@@ -1,16 +1,29 @@
-# IDone — Decentralized Identity Vault
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-full-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-full-dark.png">
+    <img alt="IDone — Decentralized Identity Vault" src="docs/assets/logo-full-dark.png" width="380">
+  </picture>
+</p>
 
-> **"Your Identity. Your Credentials. Your Control."**
+<h1 align="center">IDone — Decentralized Identity Vault</h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg)](https://fastapi.tiangolo.com)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg)](https://www.typescriptlang.org)
-[![Design: Zero Gradients](https://img.shields.io/badge/Design-Zero--Gradients-0F172A.svg)](#3-technology-stack--solid-design-system)
-[![PDF Docs: 3 Available](https://img.shields.io/badge/PDF%20Docs-3%20Available-16A34A.svg)](#6-official-pdf-documentation--system-guides)
-[![One-Click Launcher](https://img.shields.io/badge/Launcher-launch.bat-2563EB.svg)](#-one-click-launch-windows)
-[![Tests: 17 Passed](https://img.shields.io/badge/Tests-17%20Passed-16A34A.svg)](tests/)
+<p align="center">
+  <strong>Apple-Inspired Enterprise Decentralized Identity & Verifiable Credentials Hub</strong><br>
+  <em>"Your Identity. Your Credentials. Your Control."</em>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-blue.svg" alt="Python"></a>
+  <a href="https://fastapi.tiangolo.com"><img src="https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg" alt="FastAPI"></a>
+  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-14-black.svg" alt="Next.js"></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg" alt="TypeScript"></a>
+  <a href="#3-technology-stack--apple-inspired-design-system"><img src="https://img.shields.io/badge/UI%2FUX-Apple%20Inspired%20%26%20visionOS-0071E3.svg" alt="Design: Apple Inspired"></a>
+  <a href="#6-system-architecture--security-guides"><img src="https://img.shields.io/badge/Docs-Architecture%20%26%20Security-16A34A.svg" alt="Documentation"></a>
+  <a href="#-one-click-launch-windows"><img src="https://img.shields.io/badge/Launcher-launch.bat-2563EB.svg" alt="Launcher"></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/Tests-18%20Passed-16A34A.svg" alt="Tests: 18 Passed"></a>
+</p>
 
 ---
 
@@ -81,13 +94,13 @@ Traditional identity systems force individuals to surrender control of personal 
 
 ---
 
-## 3. Technology Stack & Solid Design System
+## 3. Technology Stack & Apple-Inspired Design System
 
 ### Technology Stack
 | Layer | Technologies |
 | :--- | :--- |
 | **Frontend** | Next.js 14 (App Router), React 18, TypeScript 5, Tailwind CSS |
-| **Icons & UI** | Lucide React |
+| **Brand & UI** | Official IDone Biometric Vector Mark, Lucide React, Apple San Francisco Typography |
 | **Client Cryptography** | WebCrypto API (`crypto.subtle`), AES-256-GCM |
 | **Backend API** | FastAPI, Python 3.11+, Uvicorn, Pydantic V2 |
 | **Backend Cryptography** | `cryptography.hazmat` (Ed25519, AES-256-GCM, Argon2id, SHA-256) |
@@ -95,26 +108,37 @@ Traditional identity systems force individuals to surrender control of personal 
 | **Authentication** | Argon2id password hashing + JWT tokens (HMAC-SHA256) |
 | **Smart Contracts** | Solidity `^0.8.20`, Ethers.js v6, Hardhat / ts-node |
 
-### The Solid Design System (Zero Gradients Philosophy)
+### The Apple & visionOS Design System
 
-IDone intentionally **prohibits all linear gradients, gradient meshes, and glowing overlays**. In cybersecurity and Swiss private banking, gradients are associated with speculative marketing and consumer tech hype. Solid colors project permanence, algorithmic precision, and institutional stability.
+IDone merges **institutional cryptographic defense** with the refined tactile simplicity of **Apple iOS, macOS, and visionOS**.
+
+- 💳 **Apple Wallet Pass Credentials**: Verifiable Credentials rendered as tactile physical passes featuring continuous Apple squircles (`rounded-3xl`), simulated gold contactless NFC micro-chip strips with contact pad divisions, and interactive specular highlights.
+- 🏝️ **Dynamic Island Security Telemetry**: A floating navigation pill that provides continuous real-time cryptographic status, active DID resolution indicators, and live security telemetry.
+- 🪟 **visionOS Frosted Glassmorphism**: Multilayered spatial depth using high-efficiency `backdrop-blur-xl`, semi-translucent glass panels, and ultra-fine hairline borders (`border-white/10` / `border-black/5`).
+- 💎 **Curated Cupertino Color Matrix**: Replaces generic web primaries with high-contrast, mathematically calibrated Apple hues:
 
 | Token Name | Hex Code | Purpose & Semantic Usage |
 | :--- | :--- | :--- |
-| **Deep Slate** | `#0F172A` | Primary text, navigation headers, institutional hero backdrops |
-| **Off-White** | `#F8FAFC` | Clean canvas background, card contrast base |
-| **Surface White** | `#FFFFFF` | Card backgrounds, dialog surfaces, inputs |
-| **Pitch Black** | `#0A0A0A` | Dark mode global canvas & input background (0% blue tint) |
-| **Charcoal Surface** | `#121212` | Dark mode card surfaces & dialog backgrounds |
-| **Elevated Neutral** | `#1A1A1A` | Dark mode sub-cards & table alt-rows |
-| **Neutral Border** | `#262626` | Dark mode structural dividers & borders |
-| **Trust Blue** | `#2563EB` | Primary actions (light mode), cryptographic badges |
-| **Hover Blue** | `#1D4ED8` | Tactile button hover state |
-| **Emerald Success** | `#16A34A` | Valid signatures, active credentials, healthy security scores |
-| **Crimson Alert** | `#DC2626` | Revoked credentials, failed signatures, critical security warnings |
-| **Amber Warning** | `#D97706` | Expiring credentials, pending key rotations, medium security alerts |
-| **Slate Gray** | `#64748B` | Secondary labels, timestamps, DID strings |
-| **Border Gray** | `#E2E8F0` | High-contrast light mode dividers and card borders |
+| **Space Black / Pitch** | `#000000` / `#0A0A0C` | Pure OLED dark canvas backdrop, high-contrast text |
+| **Cupertino Charcoal** | `#161618` | Dark mode Apple card surfaces & modal sheets |
+| **Elevated Glass** | `#1C1C1E` | visionOS modal sheets, dropdown popovers, elevated cards |
+| **Apple Surface Tint** | `#F5F5F7` | Pristine light mode canvas backdrop with neutral clarity |
+| **Electric Apple Blue** | `#0071E3` | Primary action buttons, active navigation, cryptographic badges |
+| **Apple Emerald** | `#34C759` | Valid cryptographic signatures, healthy security scores |
+| **Apple Crimson** | `#FF3B30` | Revoked credentials, mathematical signature failures |
+| **Apple Amber** | `#FF9500` | Expiring credentials, rotation warnings, medium security alerts |
+| **Apple Purple** | `#AF52DE` | Decentralized Identity (DID) tags, asymmetric keypair markers |
+| **Apple Slate** | `#8E8E93` | Secondary labels, timestamps, DID hashes, subtle captions |
+
+### Official Brand & Logo Assets
+
+The repository includes complete dual-theme vector-aligned logo assets located in [`docs/assets/`](docs/assets/) and [`frontend/public/`](frontend/public/):
+
+| Asset Variant | Dark Mode Asset (for Light Backdrops) | Light Mode Asset (for Dark Backdrops) | Description |
+| :--- | :--- | :--- | :--- |
+| **Full Horizontal Brandmark** | [`logo-full-dark.png`](docs/assets/logo-full-dark.png) | [`logo-full-white.png`](docs/assets/logo-full-white.png) | Complete horizontal lockup with "Decentralized Identity Vault" descriptor (452×260) |
+| **Primary Brand Lockup** | [`logo-main-dark.png`](docs/assets/logo-main-dark.png) | [`logo-main-white.png`](docs/assets/logo-main-white.png) | Core brand mark with typographic "IDone." wordmark (452×230) |
+| **Biometric Shield Icon** | [`logo-mark-dark.png`](docs/assets/logo-mark-dark.png) | [`logo-mark.png`](docs/assets/logo-mark.png) | Compact biometric keyhole shield for favicons, Dynamic Island, and avatar chips (166×221) |
 
 ---
 
@@ -172,14 +196,15 @@ IDone/
 │   │   ├── verify/page.tsx       # Independent verification tool
 │   │   └── activity/page.tsx     # Security audit timeline
 │   ├── components/               # Accessible modular UI components
-│   │   ├── Navbar.tsx            # Top navigation bar with active status dot
-│   │   ├── Sidebar.tsx           # Sidebar navigation with hover slide indicator
-│   │   ├── CredentialCard.tsx    # VC card with raw JSON inspector modal
+│   │   ├── Logo.tsx              # Adaptive dark/light vector-aligned logo component
+│   │   ├── Navbar.tsx            # Apple Dynamic Island top navigation
+│   │   ├── Sidebar.tsx           # Sidebar navigation with active indicator
+│   │   ├── CredentialCard.tsx    # Apple Wallet Pass card with NFC chip & JSON inspector
 │   │   ├── IdentityBadge.tsx     # DID badge with expandable W3C JSON-LD drawer
-│   │   ├── SecurityHealthCard.tsx# Animated solid score progress bar
-│   │   ├── ShareModal.tsx        # Selective disclosure modal dialog
+│   │   ├── SecurityHealthCard.tsx# Animated telemetry health score meter
+│   │   ├── ShareModal.tsx        # visionOS frosted glass selective disclosure sheet
 │   │   ├── ActivityItem.tsx      # Audit trail timeline item
-│   │   └── VerificationResultCard.tsx # Multi-step cryptographic checklist
+│   │   └── VerificationResultCard.tsx # Apple squircle cryptographic checklist
 │   ├── lib/
 │   │   ├── api.ts                # Typed client API integration
 │   │   └── crypto.ts             # Browser WebCrypto AES-GCM utilities
@@ -206,7 +231,7 @@ IDone/
 │   ├── IdentityRegistry.sol      # On-chain DID hash registry
 │   ├── CredentialStatus.sol      # On-chain revocation registry
 │   └── deploy.ts                 # Contract deployment script
-├── tests/                        # Comprehensive Automated Test Suite
+├── tests/                        # Comprehensive Automated Test Suite (18 Tests)
 │   ├── conftest.py               # Test database fixtures
 │   ├── backend/                  # API and domain tests
 │   │   ├── test_auth.py
@@ -216,14 +241,13 @@ IDone/
 │   │   └── test_verify.py
 │   ├── blockchain/               # Contract anchoring tests
 │   │   └── test_contracts.py
-│   └── security/                 # Isolation & cryptographic attack tests
-│       └── test_security.py
-├── 1_How_To_Use_IDone.pdf        # Complete User Guide with 7 UI Mockups (8 Pages)
-├── 2_How_IDone_Works.pdf         # Technical Architecture & Cryptography Deep Dive (8 Pages)
-├── 3_IDone_Project_Overview.pdf  # Project Overview, Tech Stack & File Inventory (5 Pages)
-├── docs/                         # In-depth Documentation
-│   ├── architecture.md           # Architecture specifications
-│   └── security.md               # Cryptographic and threat model specs
+│   ├── security/                 # Isolation & cryptographic attack tests
+│   │   └── test_security.py
+│   └── test_e2e_flow.py          # End-to-end credential lifecycle test
+├── docs/                         # In-depth Architectural & Security Documentation
+│   ├── architecture.md           # Architecture specifications, boundaries & protocols
+│   ├── security.md               # Cryptographic threat models & attack surface mitigations
+│   └── assets/                   # Official vector logos & system diagrams
 ├── .env.example                  # Environment configuration template
 ├── .gitignore                    # Git ignore file protecting keys and DBs
 ├── LICENSE                       # MIT Open Source License
@@ -232,15 +256,15 @@ IDone/
 
 ---
 
-## 6. Official PDF Documentation & System Guides
+## 6. System Architecture & Security Guides
 
-The repository includes three publication-grade, professionally compiled PDF documents providing complete user walkthroughs, cryptographic specifications, and architectural documentation. All diagrams and UI mockups adhere strictly to IDone's **Zero-Gradients** solid institutional palette:
+IDone provides complete technical architecture specifications, cryptographic models, and developer guides within the [`docs/`](docs/) directory:
 
-| Document | Focus | Pages | Visual Assets & Key Content |
-| :--- | :--- | :--- | :--- |
-| 📘 [**`1_How_To_Use_IDone.pdf`**](1_How_To_Use_IDone.pdf) | **Application User Guide & Operations Manual** | 8 Pages | **7 Pixel-Perfect UI Mockups** (Onboarding & Seed Backup, Command Center Dashboard, W3C DID Drawer, VC Hub, Selective Disclosure Dialog, Zero-Knowledge Vault Locker, and Independent Verifier). |
-| 🔬 [**`2_How_IDone_Works.pdf`**](2_How_IDone_Works.pdf) | **Technical Architecture & Cryptography Deep Dive** | 8 Pages | **7 High-Resolution 300 DPI Diagrams** (System Architecture & Boundaries, DID Key Rotation Sequence, RFC 8785 Canonicalization Pipeline, Client-Side AES-256-GCM Flow, Selective Disclosure Flowchart, EVM Contracts, and Security Radar). |
-| 📑 [**`3_IDone_Project_Overview.pdf`**](3_IDone_Project_Overview.pdf) | **Project Overview, Tech Stack & System Specification** | 5 Pages | **Executive Specification** covering the complete technology stack matrix, zero-gradient color token table, 42-file repository inventory with per-file responsibilities, full REST API reference table, and 17-test QA suite. |
+| Document | Focus | Visual Assets & Key Content |
+| :--- | :--- | :--- |
+| 🏗️ [**`docs/architecture.md`**](docs/architecture.md) | **System Architecture & Data Flows** | W3C DID Resolution Engine, RFC 8785 Canonicalization Pipeline, Client-Side AES-256-GCM Flow, Selective Disclosure, and EVM Smart Contract Anchors. |
+| 🛡️ [**`docs/security.md`**](docs/security.md) | **Cryptographic Specifications & Threat Models** | Ed25519 asymmetric signing, Argon2id derivation, zero-knowledge encryption guarantees, and isolation attack resilience. |
+| 🎨 [**`docs/assets/`**](docs/assets/) | **Official Brand & Diagram Assets** | High-resolution architectural flowcharts, vector-aligned logos, and Apple-inspired asset suite. |
 
 ---
 
@@ -353,7 +377,7 @@ IDone includes a comprehensive automated test suite spanning backend unit tests,
 python -m pytest tests -v
 ```
 
-### Test Coverage Summary (17 Tests Passed):
+### Test Coverage Summary (18 Tests Passed):
 - **Authentication (`tests/backend/test_auth.py`)**:
   - User registration, Argon2id password derivation, JWT issuance, token expiration, invalid credentials.
 - **Decentralized Identity (`tests/backend/test_identity.py`)**:
@@ -368,6 +392,8 @@ python -m pytest tests -v
   - `IdentityRegistry` DID hash anchoring, `CredentialStatus` revocation registry and cryptographic fingerprint roots.
 - **Security Isolation (`tests/security/test_security.py`)**:
   - Cross-user tenant isolation, replay attack rejection, brute-force resistance, zero plaintext leakage in database storage.
+- **End-to-End Credential Flow (`tests/test_e2e_flow.py`)**:
+  - Complete lifecycle execution: registration, DID resolution, credential issuance, cryptographic signature validation, selective disclosure claim filtration, and instant revocation verification.
 
 ### Frontend Production Build Verification:
 ```bash

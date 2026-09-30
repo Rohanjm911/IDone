@@ -1,26 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Rounded Base Plate -->
-  <rect width="64" height="64" rx="14" fill="#0A0A0A"/>
-  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#262626" stroke-width="2"/>
-  
-  <!-- Outer Shield Geometry -->
-  <path d="M32 9L15 17V31.5C15 42.8 22.3 52.4 32 55C41.7 52.4 49 42.8 49 31.5V17L32 9Z" fill="#2563EB"/>
-  
-  <!-- Inner Contrast Shield -->
-  <path d="M32 14L19 20V31.5C19 40.5 24.6 48.2 32 50.4C39.4 48.2 45 40.5 45 31.5V20L32 14Z" fill="#0F172A"/>
-  
-  <!-- Cryptographic Vault Keyhole / Lock Body -->
-  <!-- Shackle -->
-  <path d="M26 27V24C26 20.686 28.686 18 32 18C35.314 18 38 20.686 38 24V27" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-  
-  <!-- Lock Core / Base -->
-  <rect x="23" y="27" width="18" height="14" rx="3" fill="#FFFFFF"/>
-  
-  <!-- Keyhole Cutout -->
-  <circle cx="32" cy="32" r="2.2" fill="#0F172A"/>
-  <path d="M31 32.5L30.5 37H33.5L33 32.5Z" fill="#0F172A"/>
-  
-  <!-- Active Cryptographic Proof Indicator -->
-  <circle cx="45" cy="18" r="3.5" fill="#16A34A"/>
-  <circle cx="45" cy="18" r="1.5" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <rect width="256" height="256" rx="56" fill="#0A0A0A"/>
+  <rect x="2" y="2" width="252" height="252" rx="54" fill="none" stroke="#262626" stroke-width="4"/>
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAADdCAYAAAAxbQl1AAAJZ0lEQVR4nO3dPY8jSRkH8OeprvbOzezNjJCW3QgtSBeQQXLfgE9AQkx2CImEj8CHIIAciYCM8DJiYgRCC0grHRLL7GqW80t1FSpPN+ozts/2rO3n5f+TrPH7VHf/XdVd/VJMjpRSmIiup9PpzcXFRTt+iYi4v9GWv0vz+fwrjz+UyWRSy3EWu07ThjIu5918Pg9E1DBzaNt2QUT/IqIvmHnv6TrKDJaqlPIREf2UiH5IRFellMDMQ2Cr5eM6X0bPbQ3phygWycG7lLUGrZSHYo/nVw1kKaUGsz45I6LPiehnzPzlvgWJ5EudYZ/knL/fdV3r8cd5KsycY4zfPTRjter1pP7M56PHCOXxjFudvXkLZp1RzbkL4anWpAN5DOaTum6J2vL4SikI5o5QYyrhrcassF55Ogf3OHgL5rivEo6r9h8hmHvw9mNUydtCQo2phLdgVginAt6CiVCeyHi35SG8BRNOCBs/e86vIy0H+IBQY8LR9PvKD6oIXAXz7u4O65hKuAom6OExmFjHVMBjMEEBBBOO3V10UGcmggkiuQpmf5IUnEi/5wfdRWCHqxqzV3finrsM8DU8BhMUQDDhaB6zSo9gwtHgvHIwBzUmiIRggkgeg4lOdgU8BhMUQDBBJAQTRPIYTKxjKuAxmKAAggkiuQrmzc3NuYsAO3IVTNADwQSRXAXz3bt3uOCBEq6CCXq4DCbOSZPPZTBBPo/BxJ4fBTwGE04E5/yAqfN9KtSYcEwH5wvBhGPB6Lv7zrDjLAcY6692cvBgsq5qzOvr63MXwdWGDz9s/SCYu8wvbz/GM0ONuYv7+/uGiOoNjq8OQHXwalPsPxz72mT1CrASLou2beJ4n3HK37x582yxWLQxxvchhLpyHlYHSnpsN4cgfKTvLTv8r9qKd0T0hojq373xdDr9pG3bHxPRN4hoQUQphJBrAXLOawsSQlg+V18PYbeWMee8bkYtnxt9B4/eO7yfh9fr8+P/179vXL7hM6WfhnrjnPNFKeXpdDq9ffv27d+fP3/+h6Zp7jc0NYesF62WYx/ljMHjPcu0qdIKKxVb03UdNU3zVyL6IzMvg7SPyMzfCyF81nXd5fDP6pduG26tD+z/3T/U8B2baqtannX3t1l533I9/PLy8v39/f1Pmqb5bR9aOJKmaR41ZnltwlMp5SLnPDTnVpWmafLTp0+XzctjxjmE4wullJmj2iM1TZPOXQj4eiHG6Gm45BxjPGhlHE4rPKavSSE030qElJKXUA68Ta/aptxLMz7wNK1qha7r3CwoQ53n5mG/MYgUho5Q8sPTtKpuyskLdKrr4a0pP3iYYjgtV8F8zPjZcFqugln1e7pAOHfBBB0QTBDbXYT1LhDHXY2ZEo5608BdMGOM2CpXwF0wQQcEE0RCMEF0MN2sd2HjRwfUmCASggkiuTqCHfRAjQkiBYcXEwUFXAUTA0/p4SqYqDH1cBVM1Jh6uAom6IFggugDhQFEQY0JIrkLJs6S1BNMN005uov0cFVj4hIxergKZoXjMXVwF0ycjKaDu2CixtTBVTDrxg9qTB1cBRP0QDBBJI/BdNNvq5mnwacG3qZXJZyMBnJrTEfj33gbbEt3MB0d2V2HKPS4Xq2Ot4XEKaXlwEYgm7drFwVm9vZjVL1Vzk7C2cxmMwxboUBdSM0olKbDyczZ+jRaESeTyd9KKZ/HGD+uC60uvFI30x8W4nhBrlugW7eaHr7mZBtWq+WrvQ3LA6HrcZj1PjP/5fr6+s84LlO+oato8urVK3758mUNYrVuJItzbLrv+z/Lhs8Mz9eQLsiAUsrFfD7/Tkrpo7Zt6/Rtag02zcPHLk/e4/vW5Wn8mBeLRWzbtn7HrG3bf7jpJ7JmPp9/2rbtr4no2WgbYdNqStgzRNuMP7trfja1urxme+e+67pfYENAqbZtr0op304pXVraacDMNymlb6HrRKmUUja6rswhhOXGASgUbQ/WukAwlUopxb7XwUwzPgghZARTr2D5IAcEUy82fFQY1jFBnpwzDmhQjsmgEAKacpAJ65ggEoKpVyGjcs4IplYxRrPBxJ4f/ddgKmQUmnKlouEaE025YumhxrQKHewgE5pyEAnB1KsYPR5zCcEEkRBMvQrZhY0fkAk1JoiEYIJICCaIhGCCSAimboWMQjBBJAQTREIwQSQEE0RCMEEkBFMvJsMQTBAJwdSLyTAEU7Fi96JaCKZmhq9CiGAqxmQYmnIQCcHUi8kwBBNEQjBBJARTLybDEEyQCNdgB5lQY+rFZBdqTMXY6i5JjFoBIuWcA5pypbquq7WlyRpzWWmeuwRwMDY87xBMxYLhcEbUmHoFMqqUMjE7cdYx80VfY5q7GkfOeRLrnXG3g+XLJ0uza3cPj5ZJ/5l4d3f34vb2tmPmRmM4N007M+cQwqL2hX2z67ofpJQ+DiHUMTrmIYSun9h8+iKrxxv+fmWLumlqnjYq/d/c3+/6+/VDk5zz1evXrz998eLFs7Zt/01Ei7rscs7D53jbrQ/F/7bq65HwpeyU7bLPD6g+HgVw/Hf1NmSt/tD+E0L4Dc9msx9NJpNf5pwvVv75zoU41LjwKxOxdkJJH96l/OvmJT/Mj+G15etDoGqtklL63Xw+//nV1dVd//rqd0idX+vKVVbup5hzbusvsOu6ZbMO8jFzbtv2n5PJ5AsyKoQQ3tcJPXdBYHelFK7D2lkWRusxoASPmnfrnbRS10dgM9PLzPLeA+sCGZ84002CReVh6xzBBJGYDDP9q7Os6OzX3Vlomsb8Fh7oE7qu7u1CMEEWNOUguikHEAU1plJs+NqYVUipHukG2hTrW+XnLgDAOgimUmy9KT93AQDWQTBBpBBjxJ4fEAc1Jsg9HtN614M17OAU6+BhCw/0QVMOooNpvmkAXVBjgkgIJoiEk9FA7NFF2CQHcdCUg0gIJoiEYILogzgAREGNqVchwxBMEAnBBJEQTBAJwQSREEwQCcFUquw2Lo9aOIhDKTZ+egVqTBAJwQSRcGoFiIQaE8Rv/JhemQZd0JTrxWQYTq0AscdjnrsMcBi2POMwlqRC5eFaU+aDSdYn0igm4wNQNecuBMC6GhPNuU6FDIullMTMXT0owPoRK1Y0TVPHWTQ9Dk588uTJn4joVzHG2/5XmPu/4xtt6Igvj1z32fbesvK+cob1Mt7x+XXv2/W51dd4zXuH5VJvddWrPv79lu9S77/MT83x2ZpZnQAAAABJRU5ErkJggg==" x="48" y="20" width="160" height="216" preserveAspectRatio="xMidYMid meet"/>
 </svg>

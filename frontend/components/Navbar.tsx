@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Shield, Lock, LogOut, CheckCircle2, User as UserIcon } from "lucide-react";
+import { Lock, LogOut, ShieldCheck, Sparkles } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { logoutUser, User } from "@/lib/api";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -20,71 +21,74 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-offwhite-200 dark:border-[#262626] bg-white dark:bg-[#101010] px-6 transition-colors">
-      {/* Brand & Tagline */}
+    <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between px-6 apple-glass transition-all duration-300">
+      {/* Brand & Identity Vault Tag */}
       <div className="flex items-center space-x-4">
-        <Link href="/dashboard" className="flex items-center space-x-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-900 dark:bg-[#1A1A1A] text-white border border-navy-700 dark:border-[#2E2E2E]">
-            <Shield className="h-5 w-5 text-trust-600 dark:text-[#E5E5E5]" />
-          </div>
-          <div>
-            <span className="text-lg font-bold tracking-tight text-navy-900 dark:text-white">IDone</span>
-            <span className="hidden ml-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-zinc-300 sm:inline-block">
-              Vault
-            </span>
-          </div>
+        <Link href="/dashboard" className="flex items-center space-x-2.5 group">
+          <Logo variant="main" size="sm" priority />
+          <span className="hidden text-[10px] font-semibold tracking-wider uppercase text-neutral-400 dark:text-neutral-500 sm:inline-block border-l border-neutral-300/60 dark:border-neutral-800 pl-2.5 ml-0.5">
+            Vault OS
+          </span>
         </Link>
 
-        {/* Network & Security Indicators */}
-        <div className="hidden items-center space-x-2 md:flex">
-          <span className="inline-flex items-center rounded-full bg-trust-50 dark:bg-[#161616] px-2.5 py-1 text-xs font-medium text-trust-700 dark:text-[#E2E8F0] border border-trust-100 dark:border-[#282828]">
-            <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-trust-600 dark:bg-[#CBD5E1] animate-calm-pulse"></span>
-            EVM Anchors Active
-          </span>
-          <span className="inline-flex items-center rounded-full bg-success-50 dark:bg-[#161616] px-2.5 py-1 text-xs font-medium text-success-700 dark:text-[#E2E8F0] border border-success-100 dark:border-[#282828]">
-            <Lock className="mr-1.5 h-3 w-3 text-success-600 dark:text-emerald-400" />
-            AES-256 Encrypted
-          </span>
+        {/* Apple Dynamic Island Security Pill */}
+        <div className="hidden items-center md:flex group relative">
+          <div className="apple-dynamic-island cursor-default transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+            <div className="flex items-center space-x-2.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#30D158] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#30D158]"></span>
+              </span>
+              <span className="text-[11px] font-bold text-white tracking-tight">Sovereign Vault Live</span>
+              <span className="text-[10px] text-neutral-400 font-mono pl-1.5 border-l border-white/20">AES-256 • Ed25519</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* User Info, Theme Toggle & Actions */}
+      {/* User Info, Theme Switcher & System Controls */}
       <div className="flex items-center space-x-3">
-        {/* Theme Toggle Button */}
+        {/* iOS-Style Theme Toggle */}
         <ThemeToggle />
 
         {user ? (
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center space-x-2 rounded-lg border border-offwhite-200 dark:border-[#262626] bg-offwhite-50 dark:bg-[#161616] px-3 py-1.5 transition-colors hover:border-slate-300 dark:hover:border-[#383838]">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-navy-800 dark:bg-[#262626] text-xs font-semibold text-white">
+          <div className="flex items-center space-x-2.5">
+            {/* Apple User Capsule */}
+            <div className="flex items-center space-x-2.5 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.03] dark:bg-white/[0.06] pl-1.5 pr-3.5 py-1 transition-all duration-200 hover:border-blue-500/30 hover:bg-black/[0.05] dark:hover:bg-white/[0.1]">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-[#0071E3] via-[#AF52DE] to-[#FF2D55] text-xs font-bold text-white shadow-xs">
                 {user.full_name ? user.full_name.charAt(0).toUpperCase() : "U"}
               </div>
-              <div className="text-left">
-                <p className="text-xs font-semibold text-navy-900 dark:text-white leading-none">{user.full_name}</p>
-                <p className="text-[10px] text-slate-500 dark:text-zinc-300 leading-none mt-1 truncate max-w-[140px]">{user.email}</p>
+              <div className="text-left hidden sm:block">
+                <p className="text-xs font-semibold text-neutral-900 dark:text-white leading-tight">
+                  {user.full_name}
+                </p>
+                <p className="text-[10px] text-neutral-500 dark:text-neutral-400 leading-tight truncate max-w-[130px]">
+                  {user.email}
+                </p>
               </div>
             </div>
 
+            {/* Sign Out Button */}
             <button
               onClick={handleLogout}
-              className="btn-press inline-flex items-center justify-center rounded-lg border border-offwhite-200 dark:border-[#262626] bg-white dark:bg-[#161616] p-2 text-slate-600 dark:text-zinc-200 hover:bg-alert-50 dark:hover:bg-[#281414] hover:text-alert-600 hover:border-alert-100 dark:hover:border-[#4A1E1E]"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.03] dark:bg-white/[0.06] text-neutral-600 dark:text-neutral-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-500/10 dark:hover:bg-red-500/20 transition-all duration-200 active:scale-95"
               title="Sign Out"
               aria-label="Sign Out"
             >
-              <LogOut className="h-4 w-4" />
+              <LogOut className="h-3.5 w-3.5" />
             </button>
           </div>
         ) : (
           <div className="flex items-center space-x-2">
             <Link
               href="/login"
-              className="btn-press rounded-lg px-3.5 py-1.5 text-xs font-semibold text-navy-900 dark:text-white hover:bg-offwhite-100 dark:hover:bg-[#1E1E1E]"
+              className="apple-btn-secondary px-4 py-1.5 text-xs"
             >
               Sign In
             </Link>
             <Link
               href="/register"
-              className="btn-press rounded-lg bg-navy-900 dark:bg-white dark:text-black px-3.5 py-1.5 text-xs font-bold text-white hover:bg-navy-800 dark:hover:bg-zinc-200"
+              className="apple-btn-primary px-4 py-1.5 text-xs shadow-xs"
             >
               Get Started
             </Link>

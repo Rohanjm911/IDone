@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/hero_banner.svg" alt="IDone Animated Hero Banner" width="100%">
+  <img src="docs/assets/hero_animated.svg" alt="IDone Animated Hero Banner" width="100%">
 </p>
 
 ---
@@ -179,7 +179,7 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Full Horizontal Brandmark** | [`logo-full-dark.png`](docs/assets/logo-full-dark.png) | [`logo-full-white.png`](docs/assets/logo-full-white.png) | Complete horizontal lockup with "Decentralized Identity Vault" descriptor (452×260) |
 | **Primary Brand Lockup** | [`logo-main-dark.png`](docs/assets/logo-main-dark.png) | [`logo-main-white.png`](docs/assets/logo-main-white.png) | Core brand mark with typographic "IDone." wordmark (452×230) |
 | **Biometric Shield Icon** | [`logo-mark-dark.png`](docs/assets/logo-mark-dark.png) | [`logo-mark.png`](docs/assets/logo-mark.png) | Compact biometric keyhole shield for favicons, Dynamic Island, and avatar chips (166×221) |
-| **Animated Hero Banner** | [`hero_banner.svg`](docs/assets/hero_banner.svg) | [`hero_banner.svg`](docs/assets/hero_banner.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
+| **Animated Hero Banner** | [`hero_animated.svg`](docs/assets/hero_animated.svg) | [`hero_animated.svg`](docs/assets/hero_animated.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
 | **Holographic Credential Card** | [`credential_card.svg`](docs/assets/credential_card.svg) | [`credential_card.svg`](docs/assets/credential_card.svg) | Physical credential simulation with iridescent holographic shimmer sweep & contactless NFC pulses |
 | **Zero-Knowledge Safe** | [`vault_animated.svg`](docs/assets/vault_animated.svg) | [`vault_animated.svg`](docs/assets/vault_animated.svg) | Rotating mechanical digital vault lock with AES-256-GCM 3-stage authenticated data stream |
 | **Security Radar HUD** | [`radar_animated.svg`](docs/assets/radar_animated.svg) | [`radar_animated.svg`](docs/assets/radar_animated.svg) | 360-degree rotating radar sweep with live target blips and circular health score gauge |

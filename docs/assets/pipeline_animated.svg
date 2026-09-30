@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 210" width="100%" height="210" fill="none">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0B0E"/>
+      <stop offset="100%" stop-color="#14141A"/>
+    </linearGradient>
+
+    <linearGradient id="streamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0071E3"/>
+      <stop offset="50%" stop-color="#AF52DE"/>
+      <stop offset="100%" stop-color="#30D158"/>
+    </linearGradient>
+
+    <filter id="glowPulse" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      .node-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 13px; fill: #FFFFFF; }
+      .node-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #86868B; }
+      .node-tag { font-family: "JetBrains Mono", monospace; font-size: 9.5px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Container Base -->
+  <rect x="2" y="2" width="856" height="206" rx="20" fill="url(#pipeBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <!-- Connecting Pathway Lines -->
+  <!-- Line 1: Client to Backend -->
+  <path d="M 260 105 L 340 105" stroke="#33333E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 260 105 L 340 105" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-dasharray="16 24">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Line 2: Backend to EVM Anchor -->
+  <path d="M 570 105 L 650 105" stroke="#33333E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 570 105 L 650 105" stroke="#AF52DE" stroke-width="3" stroke-linecap="round" stroke-dasharray="16 24">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Animated Flying Data Packets -->
+  <circle cx="260" cy="105" r="5" fill="#5AC8FA" filter="url(#glowPulse)">
+    <animate attributeName="cx" values="260;340" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="570" cy="105" r="5" fill="#BF5AF2" filter="url(#glowPulse)">
+    <animate attributeName="cx" values="570;650" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ================= NODE 1: CLIENT VAULT ================= -->
+  <g transform="translate(30, 25)">
+    <rect x="0" y="0" width="230" height="160" rx="16" fill="#16161A" stroke="#0071E3" stroke-opacity="0.4" stroke-width="1.5"/>
+    <!-- Header Pill -->
+    <rect x="14" y="14" width="70" height="20" rx="6" fill="#0071E3" fill-opacity="0.15"/>
+    <text x="22" y="28" fill="#5AC8FA" class="node-tag">BROWSER</text>
+
+    <!-- Icon -->
+    <circle cx="200" cy="24" r="10" fill="#0071E3" fill-opacity="0.2"/>
+    <path d="M 197 24 L 203 24 M 200 21 L 200 27" stroke="#5AC8FA" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Titles -->
+    <text x="14" y="58" class="node-title">Client-Side Vault</text>
+    <text x="14" y="78" class="node-desc">Zero-knowledge device boundary</text>
+
+    <!-- Specs List -->
+    <g transform="translate(14, 94)">
+      <circle cx="3" cy="5" r="3" fill="#30D158"/>
+      <text x="12" y="8" class="node-desc" fill="#A1A1A6">WebCrypto AES-256-GCM</text>
+      
+      <circle cx="3" cy="25" r="3" fill="#30D158"/>
+      <text x="12" y="28" class="node-desc" fill="#A1A1A6">Selective Disclosure Claims</text>
+      
+      <circle cx="3" cy="45" r="3" fill="#30D158"/>
+      <text x="12" y="48" class="node-desc" fill="#A1A1A6">Keys Never Leave Plaintext</text>
+    </g>
+  </g>
+
+  <!-- ================= NODE 2: FASTAPI AUTHORITY ================= -->
+  <g transform="translate(340, 25)">
+    <rect x="0" y="0" width="230" height="160" rx="16" fill="#16161A" stroke="#AF52DE" stroke-opacity="0.4" stroke-width="1.5"/>
+    <!-- Header Pill -->
+    <rect x="14" y="14" width="60" height="20" rx="6" fill="#AF52DE" fill-opacity="0.15"/>
+    <text x="22" y="28" fill="#BF5AF2" class="node-tag">SERVER</text>
+
+    <!-- Pulse Icon -->
+    <circle cx="200" cy="24" r="10" fill="#AF52DE" fill-opacity="0.2"/>
+    <circle cx="200" cy="24" r="4" fill="#BF5AF2">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Titles -->
+    <text x="14" y="58" class="node-title">FastAPI Cryptography</text>
+    <text x="14" y="78" class="node-desc">Issuance & verification engine</text>
+
+    <!-- Specs List -->
+    <g transform="translate(14, 94)">
+      <circle cx="3" cy="5" r="3" fill="#BF5AF2"/>
+      <text x="12" y="8" class="node-desc" fill="#A1A1A6">Ed25519 Authority Signatures</text>
+      
+      <circle cx="3" cy="25" r="3" fill="#BF5AF2"/>
+      <text x="12" y="28" class="node-desc" fill="#A1A1A6">RFC 8785 JSON Canonical (JCS)</text>
+      
+      <circle cx="3" cy="45" r="3" fill="#BF5AF2"/>
+      <text x="12" y="48" class="node-desc" fill="#A1A1A6">W3C DID Document Resolution</text>
+    </g>
+  </g>
+
+  <!-- ================= NODE 3: EVM BLOCKCHAIN ================= -->
+  <g transform="translate(650, 25)">
+    <rect x="0" y="0" width="180" height="160" rx="16" fill="#16161A" stroke="#30D158" stroke-opacity="0.4" stroke-width="1.5"/>
+    <!-- Header Pill -->
+    <rect x="14" y="14" width="70" height="20" rx="6" fill="#30D158" fill-opacity="0.15"/>
+    <text x="22" y="28" fill="#30D158" class="node-tag">ON-CHAIN</text>
+
+    <!-- Green Icon -->
+    <circle cx="152" cy="24" r="10" fill="#30D158" fill-opacity="0.2"/>
+    <path d="M 148 24 L 151 27 L 157 21" stroke="#30D158" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Titles -->
+    <text x="14" y="58" class="node-title">EVM Anchors</text>
+    <text x="14" y="78" class="node-desc">Immutable hashes only</text>
+
+    <!-- Specs List -->
+    <g transform="translate(14, 94)">
+      <circle cx="3" cy="5" r="3" fill="#30D158"/>
+      <text x="12" y="8" class="node-desc" fill="#A1A1A6">IdentityRegistry.sol</text>
+      
+      <circle cx="3" cy="25" r="3" fill="#30D158"/>
+      <text x="12" y="28" class="node-desc" fill="#A1A1A6">CredentialStatus.sol</text>
+      
+      <circle cx="3" cy="45" r="3" fill="#30D158"/>
+      <text x="12" y="48" class="node-desc" fill="#A1A1A6">0% PII on Blockchain</text>
+    </g>
+  </g>
+</svg>

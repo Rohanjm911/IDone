@@ -25,6 +25,10 @@
   <a href="tests/"><img src="https://img.shields.io/badge/Tests-18%20Passed-16A34A.svg" alt="Tests: 18 Passed"></a>
 </p>
 
+<p align="center">
+  <img src="docs/assets/hero_animated.svg" alt="IDone Animated Hero Banner" width="100%">
+</p>
+
 ---
 
 ## 1. Executive Summary
@@ -139,10 +143,17 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Full Horizontal Brandmark** | [`logo-full-dark.png`](docs/assets/logo-full-dark.png) | [`logo-full-white.png`](docs/assets/logo-full-white.png) | Complete horizontal lockup with "Decentralized Identity Vault" descriptor (452×260) |
 | **Primary Brand Lockup** | [`logo-main-dark.png`](docs/assets/logo-main-dark.png) | [`logo-main-white.png`](docs/assets/logo-main-white.png) | Core brand mark with typographic "IDone." wordmark (452×230) |
 | **Biometric Shield Icon** | [`logo-mark-dark.png`](docs/assets/logo-mark-dark.png) | [`logo-mark.png`](docs/assets/logo-mark.png) | Compact biometric keyhole shield for favicons, Dynamic Island, and avatar chips (166×221) |
+| **Animated Hero Banner** | [`hero_animated.svg`](docs/assets/hero_animated.svg) | [`hero_animated.svg`](docs/assets/hero_animated.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
+| **Cryptographic Pipeline** | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | Dynamic data stream animation from Client Vault to FastAPI Signer to EVM Anchors |
+| **macOS Terminal Runner** | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | Interactive Apple Terminal animation simulating test execution and launcher |
 
 ---
 
 ## 4. System Architecture
+
+<p align="center">
+  <img src="docs/assets/pipeline_animated.svg" alt="IDone Cryptographic Pipeline Animation" width="100%">
+</p>
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────────┐
@@ -247,7 +258,7 @@ IDone/
 ├── docs/                         # In-depth Architectural & Security Documentation
 │   ├── architecture.md           # Architecture specifications, boundaries & protocols
 │   ├── security.md               # Cryptographic threat models & attack surface mitigations
-│   └── assets/                   # Official vector logos & system diagrams
+│   └── assets/                   # Vector logos, animated graphics & system diagrams
 ├── .env.example                  # Environment configuration template
 ├── .gitignore                    # Git ignore file protecting keys and DBs
 ├── LICENSE                       # MIT Open Source License
@@ -376,6 +387,10 @@ IDone includes a comprehensive automated test suite spanning backend unit tests,
 # Run the entire test suite with verbose output
 python -m pytest tests -v
 ```
+
+<p align="center">
+  <img src="docs/assets/terminal_animated.svg" alt="IDone Automated Testing Terminal Animation" width="100%">
+</p>
 
 ### Test Coverage Summary (18 Tests Passed):
 - **Authentication (`tests/backend/test_auth.py`)**:

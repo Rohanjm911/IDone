@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" width="100%" height="260" fill="none">
+  <defs>
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141416"/>
+      <stop offset="100%" stop-color="#0A0A0C"/>
+    </linearGradient>
+
+    <style>
+      .term-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11.5px; fill: #86868B; }
+      .term-code { font-family: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12.5px; }
+      .prompt { fill: #30D158; font-weight: 700; }
+      .cmd { fill: #FFFFFF; font-weight: 500; }
+      .pass { fill: #30D158; font-weight: 700; }
+      .dim { fill: #6E6E73; }
+      .highlight { fill: #5AC8FA; }
+      .cursor { fill: #0071E3; }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Base -->
+  <rect x="2" y="2" width="856" height="256" rx="16" fill="url(#termBg)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+
+  <!-- macOS Window Header Bar -->
+  <path d="M 2 18 C 2 9.16 9.16 2 18 2 L 842 2 C 850.84 2 858 9.16 858 18 L 858 38 L 2 38 Z" fill="#1C1C1E"/>
+  <line x1="2" y1="38" x2="858" y2="38" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Traffic Light Window Buttons -->
+  <circle cx="22" cy="20" r="5.5" fill="#FF5F56"/>
+  <circle cx="39" cy="20" r="5.5" fill="#FFBD2E"/>
+  <circle cx="56" cy="20" r="5.5" fill="#27C93F"/>
+
+  <!-- Window Header Title -->
+  <text x="430" y="24" text-anchor="middle" class="term-title">idone-vault — zsh — 80x24</text>
+
+  <!-- ================= TERMINAL TEXT & EXECUTION FLOW ================= -->
+  <g transform="translate(26, 68)" class="term-code">
+    <!-- Line 1: Test Command -->
+    <text x="0" y="0">
+      <tspan class="prompt">➜</tspan> <tspan class="highlight">idone</tspan> <tspan class="cmd">pytest tests -v</tspan>
+    </text>
+
+    <!-- Line 2: Platform Spec -->
+    <text x="0" y="24" class="dim">
+      platform win32/darwin -- Python 3.11+, pytest-9.1.1 -- rootdir: /IDone
+    </text>
+
+    <!-- Line 3: Test results -->
+    <text x="0" y="48">
+      <tspan fill="#A1A1A6">tests/backend/test_auth.py .........................</tspan> <tspan class="pass">PASSED</tspan> <tspan class="dim">[ 16%]</tspan>
+    </text>
+
+    <!-- Line 4: Test results -->
+    <text x="0" y="70">
+      <tspan fill="#A1A1A6">tests/backend/test_identity.py (Ed25519) ...........</tspan> <tspan class="pass">PASSED</tspan> <tspan class="dim">[ 33%]</tspan>
+    </text>
+
+    <!-- Line 5: Test results -->
+    <text x="0" y="92">
+      <tspan fill="#A1A1A6">tests/backend/test_credentials.py (W3C VC) ........</tspan> <tspan class="pass">PASSED</tspan> <tspan class="dim">[ 50%]</tspan>
+    </text>
+
+    <!-- Line 6: Test results -->
+    <text x="0" y="114">
+      <tspan fill="#A1A1A6">tests/test_e2e_flow.py (Full Sovereign Lifecycle) ..</tspan> <tspan class="pass">PASSED</tspan> <tspan class="dim">[100%]</tspan>
+    </text>
+
+    <!-- Line 7: Success summary bar -->
+    <g transform="translate(0, 134)">
+      <rect x="0" y="-12" width="410" height="22" rx="4" fill="#30D158" fill-opacity="0.15" stroke="#30D158" stroke-opacity="0.3"/>
+      <text x="8" y="3" fill="#30D158" font-weight="700">✔ 18 passed in 4.52s — 0 warnings (100% Verified)</text>
+    </g>
+
+    <!-- Line 8: Next Command with Blinking Cursor -->
+    <g transform="translate(0, 168)">
+      <text x="0" y="0">
+        <tspan class="prompt">➜</tspan> <tspan class="highlight">idone</tspan> <tspan class="cmd">./launch.bat</tspan>
+      </text>
+      <!-- Blinking Cursor -->
+      <rect x="145" y="-12" width="7" height="15" class="cursor">
+        <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+</svg>

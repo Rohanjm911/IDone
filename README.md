@@ -48,6 +48,10 @@ Traditional identity systems force individuals to surrender control of personal 
 - **Cryptographic Key Rotation**: Built-in keypair rotation updating assertion methods without invalidating historical records.
 - **In-App Inspection**: Expandable W3C JSON-LD DID Document drawer with instant copy feedback.
 
+<p align="center">
+  <img src="docs/assets/graph_2_key_lifecycle.png" alt="IDone DID Key Generation & Rotation Lifecycle" width="100%">
+</p>
+
 ### 📜 Verifiable Credentials (VC) Hub
 - **W3C Verifiable Credentials Data Model v1.1**: Cryptographically signed credentials for academic degrees, professional certifications, citizenship proof, and security clearances.
 - **RFC 8785 Canonicalization (JCS)**: Deterministic byte serialization ensuring cross-language signature validity between Python and TypeScript.
@@ -55,10 +59,22 @@ Traditional identity systems force individuals to surrender control of personal 
 - **Instant Revocation Management**: Authority-managed cryptographic revocation and audit logs.
 - **Raw JSON-LD Inspector**: Live modal to view and copy normalized JSON-LD credential objects.
 
+<p align="center">
+  <img src="docs/assets/graph_3_vc_pipeline.png" alt="IDone W3C Verifiable Credentials Pipeline" width="100%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/graph_5_selective_disclosure.png" alt="IDone Selective Disclosure Protocol Flowchart" width="100%">
+</p>
+
 ### 🛡️ Zero-Knowledge Encrypted Vault
 - **AES-256-GCM Digital Locker**: All sensitive documents, identity records, and custom attributes are encrypted with authenticated 256-bit AES in Galois/Counter Mode.
 - **Zero Plaintext Server Exposure**: The server and database store exclusively ciphertext, 96-bit random IVs, and 128-bit authentication tags.
 - **Category Organization**: Intuitive categorization spanning Identity, Education, Professional, Certificates, and Documents.
+
+<p align="center">
+  <img src="docs/assets/graph_4_zk_encryption.png" alt="IDone Client-Side AES-256-GCM Zero Knowledge Vault" width="100%">
+</p>
 
 ### 🔍 Cryptographic Verification Engine
 - **Independent Multi-Step Validation**:
@@ -76,10 +92,18 @@ Traditional identity systems force individuals to surrender control of personal 
 - **`IdentityRegistry.sol`**: Anchors decentralized identity hashes (`keccak256(did)`) and controller addresses.
 - **`CredentialStatus.sol`**: Maintains immutable on-chain revocation states and cryptographic fingerprint roots.
 
+<p align="center">
+  <img src="docs/assets/graph_6_smart_contracts.png" alt="IDone EVM Smart Contracts Anchoring" width="100%">
+</p>
+
 ### 📊 Real-Time Security Health & Audit Trail
 - **Security Score Radar**: Live algorithmic evaluation of identity status, encryption coverage, credential validity, and suspicious events.
 - **Animated Solid Progress Meter**: Clean, high-contrast score progress transition with zero distracting gradients.
 - **Immutable Activity Timeline**: Comprehensive logging of key rotations, credential shares, vault updates, and verification events.
+
+<p align="center">
+  <img src="docs/assets/graph_7_security_radar.png" alt="IDone Security Health Radar" width="100%">
+</p>
 
 ### 🌓 Dark Mode & Light Mode Theme Toggle
 - **Instant Dual-Theme Support**: Effortlessly switch between high-clarity Light Mode and pure Black + Grey stealth Dark Mode.
@@ -153,6 +177,10 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 
 <p align="center">
   <img src="docs/assets/pipeline_animated.svg" alt="IDone Cryptographic Pipeline Animation" width="100%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/graph_1_architecture.png" alt="IDone End-to-End System Architecture Diagram" width="100%">
 </p>
 
 ```
@@ -267,15 +295,21 @@ IDone/
 
 ---
 
-## 6. System Architecture & Security Guides
+## 6. System Architecture & Cryptographic Diagram Suite
 
-IDone provides complete technical architecture specifications, cryptographic models, and developer guides within the [`docs/`](docs/) directory:
+IDone includes 7 high-resolution (300 DPI) publication-grade architectural diagrams and technical deep dives located in [`docs/assets/`](docs/assets/):
 
-| Document | Focus | Visual Assets & Key Content |
-| :--- | :--- | :--- |
-| 🏗️ [**`docs/architecture.md`**](docs/architecture.md) | **System Architecture & Data Flows** | W3C DID Resolution Engine, RFC 8785 Canonicalization Pipeline, Client-Side AES-256-GCM Flow, Selective Disclosure, and EVM Smart Contract Anchors. |
-| 🛡️ [**`docs/security.md`**](docs/security.md) | **Cryptographic Specifications & Threat Models** | Ed25519 asymmetric signing, Argon2id derivation, zero-knowledge encryption guarantees, and isolation attack resilience. |
-| 🎨 [**`docs/assets/`**](docs/assets/) | **Official Brand & Diagram Assets** | High-resolution architectural flowcharts, vector-aligned logos, and Apple-inspired asset suite. |
+| Figure | Architectural Diagram | Focus & Technical Scope |
+| :---: | :--- | :--- |
+| **Fig 1** | [**`graph_1_architecture.png`**](docs/assets/graph_1_architecture.png) | **Full System Architecture**: Client-side WebCrypto boundary, FastAPI authority services, PostgreSQL isolation, and EVM contract anchors. |
+| **Fig 2** | [**`graph_2_key_lifecycle.png`**](docs/assets/graph_2_key_lifecycle.png) | **Keypair & DID Resolution**: Ed25519 asymmetric key generation, W3C DID document construction, and cryptographic key rotation sequence. |
+| **Fig 3** | [**`graph_3_vc_pipeline.png`**](docs/assets/graph_3_vc_pipeline.png) | **W3C VC Issuance & Canonicalization**: RFC 8785 JSON Canonicalization Scheme (JCS), deterministic hashing, and mathematical signature verification. |
+| **Fig 4** | [**`graph_4_zk_encryption.png`**](docs/assets/graph_4_zk_encryption.png) | **Zero-Knowledge Locker**: Client-side 256-bit AES-GCM encryption, 96-bit random IVs, authenticated tag verification, and blind server storage. |
+| **Fig 5** | [**`graph_5_selective_disclosure.png`**](docs/assets/graph_5_selective_disclosure.png) | **Selective Disclosure Protocol**: Dynamic claim redaction flow protecting private attributes while mathematically preserving issuer authenticity. |
+| **Fig 6** | [**`graph_6_smart_contracts.png`**](docs/assets/graph_6_smart_contracts.png) | **EVM Blockchain Anchoring**: `IdentityRegistry.sol` (DID hashes) and `CredentialStatus.sol` (revocation states & fingerprint roots). |
+| **Fig 7** | [**`graph_7_security_radar.png`**](docs/assets/graph_7_security_radar.png) | **Security Health Radar**: Real-time algorithmic scoring matrix evaluating encryption coverage, key freshness, and credential validity. |
+
+For full cryptographic proofs and threat models, see [`docs/architecture.md`](docs/architecture.md) and [`docs/security.md`](docs/security.md).
 
 ---
 

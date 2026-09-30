@@ -60,6 +60,10 @@ Traditional identity systems force individuals to surrender control of personal 
 - **Raw JSON-LD Inspector**: Live modal to view and copy normalized JSON-LD credential objects.
 
 <p align="center">
+  <img src="docs/assets/card_animated.svg" alt="IDone Apple Wallet Holographic Credential Animation" width="100%">
+</p>
+
+<p align="center">
   <img src="docs/assets/graph_3_vc_pipeline.png" alt="IDone W3C Verifiable Credentials Pipeline" width="100%">
 </p>
 
@@ -71,6 +75,10 @@ Traditional identity systems force individuals to surrender control of personal 
 - **AES-256-GCM Digital Locker**: All sensitive documents, identity records, and custom attributes are encrypted with authenticated 256-bit AES in Galois/Counter Mode.
 - **Zero Plaintext Server Exposure**: The server and database store exclusively ciphertext, 96-bit random IVs, and 128-bit authentication tags.
 - **Category Organization**: Intuitive categorization spanning Identity, Education, Professional, Certificates, and Documents.
+
+<p align="center">
+  <img src="docs/assets/vault_animated.svg" alt="IDone Zero-Knowledge Digital Safe & AES-GCM Stream Animation" width="100%">
+</p>
 
 <p align="center">
   <img src="docs/assets/graph_4_zk_encryption.png" alt="IDone Client-Side AES-256-GCM Zero Knowledge Vault" width="100%">
@@ -100,6 +108,10 @@ Traditional identity systems force individuals to surrender control of personal 
 - **Security Score Radar**: Live algorithmic evaluation of identity status, encryption coverage, credential validity, and suspicious events.
 - **Animated Solid Progress Meter**: Clean, high-contrast score progress transition with zero distracting gradients.
 - **Immutable Activity Timeline**: Comprehensive logging of key rotations, credential shares, vault updates, and verification events.
+
+<p align="center">
+  <img src="docs/assets/radar_animated.svg" alt="IDone 360-Degree Real-Time Security Radar Animation" width="100%">
+</p>
 
 <p align="center">
   <img src="docs/assets/graph_7_security_radar.png" alt="IDone Security Health Radar" width="100%">
@@ -168,6 +180,9 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Primary Brand Lockup** | [`logo-main-dark.png`](docs/assets/logo-main-dark.png) | [`logo-main-white.png`](docs/assets/logo-main-white.png) | Core brand mark with typographic "IDone." wordmark (452×230) |
 | **Biometric Shield Icon** | [`logo-mark-dark.png`](docs/assets/logo-mark-dark.png) | [`logo-mark.png`](docs/assets/logo-mark.png) | Compact biometric keyhole shield for favicons, Dynamic Island, and avatar chips (166×221) |
 | **Animated Hero Banner** | [`hero_banner.svg`](docs/assets/hero_banner.svg) | [`hero_banner.svg`](docs/assets/hero_banner.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
+| **Apple Wallet Pass Card** | [`card_animated.svg`](docs/assets/card_animated.svg) | [`card_animated.svg`](docs/assets/card_animated.svg) | Physical credential simulation with iridescent holographic shimmer sweep & contactless NFC pulses |
+| **Zero-Knowledge Safe** | [`vault_animated.svg`](docs/assets/vault_animated.svg) | [`vault_animated.svg`](docs/assets/vault_animated.svg) | Rotating mechanical digital vault lock with AES-256-GCM 3-stage authenticated data stream |
+| **Security Radar HUD** | [`radar_animated.svg`](docs/assets/radar_animated.svg) | [`radar_animated.svg`](docs/assets/radar_animated.svg) | 360-degree rotating radar sweep with live target blips and circular health score gauge |
 | **Cryptographic Pipeline** | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | Dynamic data stream animation from Client Vault to FastAPI Signer to EVM Anchors |
 | **macOS Terminal Runner** | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | Interactive Apple Terminal animation simulating test execution and launcher |
 

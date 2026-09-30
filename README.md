@@ -60,7 +60,7 @@ Traditional identity systems force individuals to surrender control of personal 
 - **Raw JSON-LD Inspector**: Live modal to view and copy normalized JSON-LD credential objects.
 
 <p align="center">
-  <img src="docs/assets/card_animated.svg" alt="IDone Apple Wallet Holographic Credential Animation" width="100%">
+  <img src="docs/assets/credential_card.svg" alt="IDone Holographic Verifiable Credential Animation" width="100%">
 </p>
 
 <p align="center">
@@ -180,7 +180,7 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Primary Brand Lockup** | [`logo-main-dark.png`](docs/assets/logo-main-dark.png) | [`logo-main-white.png`](docs/assets/logo-main-white.png) | Core brand mark with typographic "IDone." wordmark (452×230) |
 | **Biometric Shield Icon** | [`logo-mark-dark.png`](docs/assets/logo-mark-dark.png) | [`logo-mark.png`](docs/assets/logo-mark.png) | Compact biometric keyhole shield for favicons, Dynamic Island, and avatar chips (166×221) |
 | **Animated Hero Banner** | [`hero_banner.svg`](docs/assets/hero_banner.svg) | [`hero_banner.svg`](docs/assets/hero_banner.svg) | Flagship animated Apple glassmorphism hero with rotating radar rings, scanning laser & telemetry badges |
-| **Apple Wallet Pass Card** | [`card_animated.svg`](docs/assets/card_animated.svg) | [`card_animated.svg`](docs/assets/card_animated.svg) | Physical credential simulation with iridescent holographic shimmer sweep & contactless NFC pulses |
+| **Holographic Credential Card** | [`credential_card.svg`](docs/assets/credential_card.svg) | [`credential_card.svg`](docs/assets/credential_card.svg) | Physical credential simulation with iridescent holographic shimmer sweep & contactless NFC pulses |
 | **Zero-Knowledge Safe** | [`vault_animated.svg`](docs/assets/vault_animated.svg) | [`vault_animated.svg`](docs/assets/vault_animated.svg) | Rotating mechanical digital vault lock with AES-256-GCM 3-stage authenticated data stream |
 | **Security Radar HUD** | [`radar_animated.svg`](docs/assets/radar_animated.svg) | [`radar_animated.svg`](docs/assets/radar_animated.svg) | 360-degree rotating radar sweep with live target blips and circular health score gauge |
 | **Cryptographic Pipeline** | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | Dynamic data stream animation from Client Vault to FastAPI Signer to EVM Anchors |

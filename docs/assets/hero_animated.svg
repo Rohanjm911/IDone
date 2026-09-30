@@ -139,7 +139,6 @@
     <!-- Main Title -->
     <text x="0" y="65" fill="#FFFFFF" class="text-title">
       IDone<tspan fill="#0071E3">.</tspan>
-      <tspan fill="#A1A1A6" font-size="19" font-weight="400"> — Apple-Grade Sovereignty</tspan>
     </text>
 
     <!-- Tagline -->

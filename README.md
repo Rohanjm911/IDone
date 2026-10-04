@@ -21,6 +21,7 @@
   <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg" alt="TypeScript"></a>
   <a href="#3-technology-stack--apple-inspired-design-system"><img src="https://img.shields.io/badge/UI%2FUX-Apple%20Inspired%20%26%20visionOS-0071E3.svg" alt="Design: Apple Inspired"></a>
   <a href="#6-system-architecture--security-guides"><img src="https://img.shields.io/badge/Docs-Architecture%20%26%20Security-16A34A.svg" alt="Documentation"></a>
+  <a href="#-live-vault-interface--application-showcase"><img src="https://img.shields.io/badge/Live%20UI-7%20Screenshots-0071E3.svg" alt="Live UI: 7 Screenshots"></a>
   <a href="#-one-click-launch-windows"><img src="https://img.shields.io/badge/Launcher-launch.bat-2563EB.svg" alt="Launcher"></a>
   <a href="tests/"><img src="https://img.shields.io/badge/Tests-18%20Passed-16A34A.svg" alt="Tests: 18 Passed"></a>
 </p>
@@ -36,6 +37,78 @@
 **IDone** is a privacy-first, enterprise-grade Decentralized Identity Vault engineered to combine the security of a modern hardware-backed digital wallet, the reliability and clarity of a top-tier banking interface, and the defensive rigor of a professional cybersecurity system.
 
 Traditional identity systems force individuals to surrender control of personal records to centralized silos vulnerable to data breaches, mass surveillance, and unauthorized commercial exploitation. **IDone** restores user sovereignty by pairing **W3C Decentralized Identifiers (DIDs)**, **W3C Verifiable Credentials (VCs)**, **zero-knowledge client-side encryption (AES-256-GCM)**, and **EVM blockchain status anchors**—guaranteeing that identity data remains strictly off-chain, encrypted, and governed exclusively by the holder.
+
+---
+
+## 📸 Live Vault Interface & Application Showcase
+
+IDone merges rigorous cryptographic defense with an Apple-inspired tactile design language, featuring pure Black & Neutral Grey institutional styling, squircle geometries, and visionOS spatial depth. Below is a complete visual walkthrough of the production application interface running live:
+
+| Figure | Interface View | Route | Primary Cryptographic & UX Scope |
+| :---: | :--- | :---: | :--- |
+| **Fig 1** | [**Sovereign Command Center**](#1-sovereign-command-center--defensive-radar) | `/dashboard` | 0–100 Defensive Posture Radar, active DID chip, EVM contract sync, telemetry tiles |
+| **Fig 2** | [**Zero-Knowledge Onboarding**](#2-zero-knowledge-onboarding--seed-phrase-generation) | `/register` | 12-word cryptographic seed phrase derivation (BIP-39 style), Ed25519 keypair genesis |
+| **Fig 3** | [**Decentralized Identity (DID)**](#3-decentralized-identity-did--keypair-resolution) | `/identity` | W3C DID Core 1.0 resolution, `Ed25519VerificationKey2020`, keypair rotation controls |
+| **Fig 4** | [**Verifiable Credentials Hub**](#4-w3c-verifiable-credentials-vc-hub) | `/credentials` | W3C VC 1.1 records, RFC 8785 canonical proof cards, credential filtering, revocation |
+| **Fig 5** | [**Selective Credential Disclosure**](#5-zero-pii-selective-credential-disclosure) | `/credentials` *(Modal)* | Dynamic claim redaction toggles, zero PII leakage, signed presentation token generation |
+| **Fig 6** | [**Encrypted Vault Locker**](#6-zero-knowledge-encrypted-vault-locker) | `/vault` | Client-side AES-256-GCM digital safe, 96-bit random IVs, in-browser zero-knowledge decrypt |
+| **Fig 7** | [**Cryptographic Verifier Engine**](#7-cryptographic-credential-verification-engine) | `/verify` | Independent 6-stage mathematical audit (Schema, DID, Ed25519, Time, Hash, On-chain) |
+
+---
+
+### 1. Sovereign Command Center & Defensive Radar
+<div align="center">
+  <img src="docs/assets/mockup_2_dashboard.png" alt="IDone Sovereign Command Center & Defensive Security Radar" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>Command Center Overview:</b> Real-time 0–100 Defensive Posture & Verification Radar, active W3C Decentralized Identifier (<a href="#-decentralized-identity-did-management"><code>did:idone:...</code></a>), live EVM anchor sync status, and instant vault telemetry metrics.</i></p>
+</div>
+
+<br/>
+
+### 2. Zero-Knowledge Onboarding & Seed Phrase Generation
+<div align="center">
+  <img src="docs/assets/mockup_1_register.png" alt="IDone Zero-Knowledge Onboarding & Seed Phrase Generation" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>Genesis Onboarding:</b> 12-word cryptographic recovery seed phrase generation deriving Ed25519 identity keypairs and client-side AES-256-GCM master vault encryption keys without server exposure.</i></p>
+</div>
+
+<br/>
+
+### 3. Decentralized Identity (DID) & Keypair Resolution
+<div align="center">
+  <img src="docs/assets/mockup_3_identity.png" alt="IDone Decentralized Identity (DID) & Keypair Resolution" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>Root Identifier Console:</b> Live W3C JSON-LD DID document resolution, Ed25519 (RFC 8032) verification method (<a href="#-decentralized-identity-did-management"><code>Ed25519VerificationKey2020</code></a>), EVM blockchain anchoring, and non-destructive key rotation.</i></p>
+</div>
+
+<br/>
+
+### 4. W3C Verifiable Credentials (VC) Hub
+<div align="center">
+  <img src="docs/assets/mockup_4_credentials.png" alt="IDone W3C Verifiable Credentials Hub" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>Verifiable Credentials Portfolio:</b> W3C VC v1.1 cards with tactile Apple Wallet styling, RFC 8785 canonicalization proofs, filter states (Valid, Revoked, Expired), and direct JSON-LD inspection.</i></p>
+</div>
+
+<br/>
+
+### 5. Zero-PII Selective Credential Disclosure
+<div align="center">
+  <img src="docs/assets/mockup_5_share.png" alt="IDone Zero-PII Selective Credential Disclosure Modal" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>Selective Disclosure Protocol:</b> Granular attribute toggle switches allowing holders to reveal verified claims (e.g. Clearance Level) while cryptographically withholding sensitive personal data (e.g. Legal Name, ID Number).</i></p>
+</div>
+
+<br/>
+
+### 6. Zero-Knowledge Encrypted Vault Locker
+<div align="center">
+  <img src="docs/assets/mockup_6_vault.png" alt="IDone Zero-Knowledge Encrypted Vault Locker" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>AES-256-GCM Digital Safe:</b> Client-side encrypted records with 96-bit random IVs and 128-bit authentication tags, categorized by Identity, Documents, and Financial with in-browser zero-knowledge decryption.</i></p>
+</div>
+
+<br/>
+
+### 7. Cryptographic Credential Verification Engine
+<div align="center">
+  <img src="docs/assets/mockup_7_verify.png" alt="IDone Cryptographic Credential Verification Engine" width="100%" style="border-radius: 12px; border: 1px solid #262626; box-shadow: 0 8px 30px rgba(0,0,0,0.5); margin-bottom: 8px;" />
+  <p align="center"><i><b>Independent Audit Engine:</b> Real-time 6-point cryptographic validation (Schema compliance, Issuer DID resolution, Ed25519 signature verification, temporal validity, RFC 8785 hash match, and EVM contract revocation status).</i></p>
+</div>
 
 ---
 
@@ -186,6 +259,19 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Cryptographic Pipeline** | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | Dynamic data stream animation from Client Vault to FastAPI Signer to EVM Anchors |
 | **macOS Terminal Runner** | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | Interactive Apple Terminal animation simulating test execution and launcher |
 
+#### Production Application UI Screenshot Suite
+The repository includes full-fidelity production screenshots located in [`docs/assets/`](docs/assets/):
+
+| Figure | Screenshot Asset | View / Feature | Resolution |
+| :---: | :--- | :--- | :---: |
+| **01** | [`mockup_2_dashboard.png`](docs/assets/mockup_2_dashboard.png) | Sovereign Command Center & Security Radar | 1280×800 |
+| **02** | [`mockup_1_register.png`](docs/assets/mockup_1_register.png) | Zero-Knowledge Onboarding & Seed Phrase | 1280×800 |
+| **03** | [`mockup_3_identity.png`](docs/assets/mockup_3_identity.png) | W3C DID Document Resolution & Ed25519 Keypair | 1280×800 |
+| **04** | [`mockup_4_credentials.png`](docs/assets/mockup_4_credentials.png) | W3C Verifiable Credentials Hub & Proofs | 1280×800 |
+| **05** | [`mockup_5_share.png`](docs/assets/mockup_5_share.png) | Zero-PII Selective Disclosure Modal | 1280×800 |
+| **06** | [`mockup_6_vault.png`](docs/assets/mockup_6_vault.png) | AES-256-GCM Encrypted Vault Locker | 1280×800 |
+| **07** | [`mockup_7_verify.png`](docs/assets/mockup_7_verify.png) | 6-Point Cryptographic Verification Engine | 1280×800 |
+
 ---
 
 ## 4. System Architecture
@@ -301,7 +387,14 @@ IDone/
 ├── docs/                         # In-depth Architectural & Security Documentation
 │   ├── architecture.md           # Architecture specifications, boundaries & protocols
 │   ├── security.md               # Cryptographic threat models & attack surface mitigations
-│   └── assets/                   # Vector logos, animated graphics & system diagrams
+│   └── assets/                   # Vector logos, animated graphics, UI screenshots & system diagrams
+│       ├── mockup_1_register.png    # Zero-knowledge onboarding & recovery seed phrase
+│       ├── mockup_2_dashboard.png   # Sovereign command center & defensive security radar
+│       ├── mockup_3_identity.png    # W3C DID document resolution & Ed25519 keypair
+│       ├── mockup_4_credentials.png # W3C Verifiable Credentials hub & RFC 8785 proofs
+│       ├── mockup_5_share.png       # Zero-PII selective credential disclosure modal
+│       ├── mockup_6_vault.png       # AES-256-GCM encrypted vault locker
+│       └── mockup_7_verify.png      # Independent 6-point cryptographic verification engine
 ├── .env.example                  # Environment configuration template
 ├── .gitignore                    # Git ignore file protecting keys and DBs
 ├── LICENSE                       # MIT Open Source License

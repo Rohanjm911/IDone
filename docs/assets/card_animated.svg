@@ -33,9 +33,9 @@
 
     <style>
       .sf-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 17px; fill: #FFFFFF; letter-spacing: -0.01em; }
-      .sf-meta { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #86868B; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+      .sf-meta { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; fill: #86868B; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
       .sf-value { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13.5px; fill: #F5F5F7; font-weight: 600; }
-      .mono-chip { font-family: "JetBrains Mono", monospace; font-size: 10px; fill: #64D2FF; }
+      .mono-chip { font-family: "JetBrains Mono", "SF Mono", Consolas, monospace; font-size: 10px; fill: #64D2FF; text-transform: none; }
     </style>
   </defs>
 
@@ -56,12 +56,12 @@
       <circle cx="16" cy="16" r="16" fill="#0071E3" fill-opacity="0.2"/>
       <path d="M 16 8 L 24 12 C 24 20 20 24 16 26 C 12 24 8 20 8 12 Z" fill="#0071E3" stroke="#5AC8FA" stroke-width="1.5"/>
 
-      <!-- Issuer Title -->
+      <!-- Issuer Title & Verification Authority -->
       <text x="42" y="14" class="sf-title" font-size="14">MIT Cryptography Lab</text>
-      <text x="42" y="28" class="sf-meta" font-size="9.5">W3C Accredited Authority • did:idone:mit-root</text>
+      <text x="42" y="28" class="sf-meta" font-size="8.5" letter-spacing="0.03em">W3C ACCREDITED AUTHORITY <tspan fill="#64D2FF" font-family="'JetBrains Mono', 'SF Mono', Consolas, monospace" font-size="7.5" font-weight="500" letter-spacing="0" text-transform="none">· did:idone:mit-root</tspan></text>
 
       <!-- Top Right: NFC Microchip with Radiating Waves -->
-      <g transform="translate(340, 2)">
+      <g transform="translate(344, 2)">
         <!-- NFC Base Chip Plate -->
         <rect x="0" y="0" width="42" height="30" rx="6" fill="url(#goldChip)" stroke="#FDE047" stroke-width="1"/>
         <!-- Contact Pads Divisions -->
@@ -70,7 +70,7 @@
         <line x1="0" y1="15" x2="42" y2="15" stroke="#78350F" stroke-width="1" opacity="0.6"/>
 
         <!-- Radiating Contactless Radio Waves -->
-        <g transform="translate(52, 15)">
+        <g transform="translate(48, 15)">
           <path d="M 2 -8 A 12 12 0 0 1 2 8" stroke="#30D158" stroke-width="1.5" fill="none" opacity="0.8">
             <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/>
           </path>
@@ -88,16 +88,16 @@
     <g transform="translate(24, 82)">
       <!-- Credential Title -->
       <text x="0" y="16" class="sf-title" font-size="18">Doctorate of Sovereign Cryptography</text>
-      <text x="0" y="34" class="sf-meta">W3C Verifiable Credential v1.1 • RFC 8785 JCS</text>
+      <text x="0" y="34" class="sf-meta" font-size="9.5" letter-spacing="0.04em">W3C Verifiable Credential v1.1 • RFC 8785 JCS</text>
 
       <!-- Two-Column Attributes -->
       <g transform="translate(0, 52)">
         <g>
-          <text x="0" y="0" class="sf-meta">Subject Holder</text>
+          <text x="0" y="0" class="sf-meta" font-size="9" letter-spacing="0.05em">Subject Holder</text>
           <text x="0" y="18" class="sf-value">Rohan J. Mukherjee</text>
         </g>
         <g transform="translate(180, 0)">
-          <text x="0" y="0" class="sf-meta">Security Clearance</text>
+          <text x="0" y="0" class="sf-meta" font-size="9" letter-spacing="0.05em">Security Clearance</text>
           <text x="0" y="18" class="sf-value" fill="#30D158">Level 5 (Top Secret)</text>
         </g>
       </g>

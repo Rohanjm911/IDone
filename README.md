@@ -22,6 +22,7 @@
   <a href="#3-technology-stack--apple-inspired-design-system"><img src="https://img.shields.io/badge/UI%2FUX-Apple%20Inspired%20%26%20visionOS-0071E3.svg" alt="Design: Apple Inspired"></a>
   <a href="#6-system-architecture--security-guides"><img src="https://img.shields.io/badge/Docs-Architecture%20%26%20Security-16A34A.svg" alt="Documentation"></a>
   <a href="#-live-vault-interface--application-showcase"><img src="https://img.shields.io/badge/Live%20UI-7%20Screenshots-0071E3.svg" alt="Live UI: 7 Screenshots"></a>
+  <a href="#official-brand--logo-assets"><img src="https://img.shields.io/badge/Animations-10%20Live%20SVGs-AF52DE.svg" alt="Animations: 10 Live SVGs"></a>
   <a href="#-one-click-launch-windows"><img src="https://img.shields.io/badge/Launcher-launch.bat-2563EB.svg" alt="Launcher"></a>
   <a href="tests/"><img src="https://img.shields.io/badge/Tests-18%20Passed-16A34A.svg" alt="Tests: 18 Passed"></a>
 </p>
@@ -122,6 +123,10 @@ IDone merges rigorous cryptographic defense with an Apple-inspired tactile desig
 - **In-App Inspection**: Expandable W3C JSON-LD DID Document drawer with instant copy feedback.
 
 <p align="center">
+  <img src="docs/assets/did_resolver_animated.svg" alt="IDone Animated W3C DID Document Resolution & Ed25519 Keypair" width="100%">
+</p>
+
+<p align="center">
   <img src="docs/assets/graph_2_key_lifecycle.png" alt="IDone DID Key Generation & Rotation Lifecycle" width="100%">
 </p>
 
@@ -138,6 +143,10 @@ IDone merges rigorous cryptographic defense with an Apple-inspired tactile desig
 
 <p align="center">
   <img src="docs/assets/graph_3_vc_pipeline.png" alt="IDone W3C Verifiable Credentials Pipeline" width="100%">
+</p>
+
+<p align="center">
+  <img src="docs/assets/selective_disclosure_animated.svg" alt="IDone Animated Selective Credential Disclosure Protocol" width="100%">
 </p>
 
 <p align="center">
@@ -168,10 +177,18 @@ IDone merges rigorous cryptographic defense with an Apple-inspired tactile desig
 - **Public & Authenticated Verifier**: Inspect any credential via interactive JSON inspection, direct paste, or file upload.
 - **Live Verification Preview**: Interactive verification card directly on the public landing page with simulated cryptographic validation.
 
+<p align="center">
+  <img src="docs/assets/verifier_animated.svg" alt="IDone Animated 6-Point Cryptographic Verification Engine" width="100%">
+</p>
+
 ### ⛓️ EVM Blockchain Anchoring
 - **Zero PII On-Chain**: No personal information, names, or cleartext credentials are ever written to the blockchain.
 - **`IdentityRegistry.sol`**: Anchors decentralized identity hashes (`keccak256(did)`) and controller addresses.
 - **`CredentialStatus.sol`**: Maintains immutable on-chain revocation states and cryptographic fingerprint roots.
+
+<p align="center">
+  <img src="docs/assets/blockchain_anchor_animated.svg" alt="IDone Animated EVM Blockchain Anchoring Engine" width="100%">
+</p>
 
 <p align="center">
   <img src="docs/assets/graph_6_smart_contracts.png" alt="IDone EVM Smart Contracts Anchoring" width="100%">
@@ -258,6 +275,10 @@ The repository includes complete dual-theme vector-aligned logo assets located i
 | **Security Radar HUD** | [`radar_animated.svg`](docs/assets/radar_animated.svg) | [`radar_animated.svg`](docs/assets/radar_animated.svg) | 360-degree rotating radar sweep with live target blips and circular health score gauge |
 | **Cryptographic Pipeline** | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | [`pipeline_animated.svg`](docs/assets/pipeline_animated.svg) | Dynamic data stream animation from Client Vault to FastAPI Signer to EVM Anchors |
 | **macOS Terminal Runner** | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | [`terminal_animated.svg`](docs/assets/terminal_animated.svg) | Interactive Apple Terminal animation simulating test execution and launcher |
+| **DID Multihash Resolver** | [`did_resolver_animated.svg`](docs/assets/did_resolver_animated.svg) | [`did_resolver_animated.svg`](docs/assets/did_resolver_animated.svg) | Dynamic W3C DID multihash resolution, side-channel resistant Ed25519 key rotation & live JSON-LD scanner |
+| **Selective Disclosure Gate** | [`selective_disclosure_animated.svg`](docs/assets/selective_disclosure_animated.svg) | [`selective_disclosure_animated.svg`](docs/assets/selective_disclosure_animated.svg) | Interactive privacy filter animation with zero-knowledge claim redaction and signed presentation stream |
+| **Verification Audit Engine** | [`verifier_animated.svg`](docs/assets/verifier_animated.svg) | [`verifier_animated.svg`](docs/assets/verifier_animated.svg) | Real-time 6-point mathematical validation matrix with circular audit score gauge and SHA-256 fingerprint |
+| **EVM Blockchain Anchor** | [`blockchain_anchor_animated.svg`](docs/assets/blockchain_anchor_animated.svg) | [`blockchain_anchor_animated.svg`](docs/assets/blockchain_anchor_animated.svg) | 3-block EVM ledger synchronization with smart contract state anchors (`IdentityRegistry` & `CredentialStatus`) |
 
 #### Production Application UI Screenshot Suite
 The repository includes full-fidelity production screenshots located in [`docs/assets/`](docs/assets/):
@@ -388,6 +409,16 @@ IDone/
 │   ├── architecture.md           # Architecture specifications, boundaries & protocols
 │   ├── security.md               # Cryptographic threat models & attack surface mitigations
 │   └── assets/                   # Vector logos, animated graphics, UI screenshots & system diagrams
+│       ├── hero_animated.svg        # Flagship glassmorphism animated hero banner
+│       ├── credential_card.svg      # Holographic Apple Wallet pass simulation with NFC pulse
+│       ├── vault_animated.svg       # Zero-knowledge mechanical safe & AES-256-GCM stream
+│       ├── radar_animated.svg       # 360-degree real-time security posture radar
+│       ├── did_resolver_animated.svg# W3C DID multihash resolution & Ed25519 key rotation
+│       ├── selective_disclosure_animated.svg # Zero-knowledge selective claim redaction gate
+│       ├── verifier_animated.svg    # 6-point cryptographic verification engine audit
+│       ├── blockchain_anchor_animated.svg # EVM block synchronization & state anchor
+│       ├── pipeline_animated.svg    # End-to-end cryptographic data pipeline stream
+│       ├── terminal_animated.svg    # Interactive macOS terminal test runner
 │       ├── mockup_1_register.png    # Zero-knowledge onboarding & recovery seed phrase
 │       ├── mockup_2_dashboard.png   # Sovereign command center & defensive security radar
 │       ├── mockup_3_identity.png    # W3C DID document resolution & Ed25519 keypair

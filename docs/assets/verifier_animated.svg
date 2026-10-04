@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" width="100%" height="260" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="vrfBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07070B"/>
+      <stop offset="50%" stop-color="#101016"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </linearGradient>
+
+    <!-- Radar Sweep Cone Gradient -->
+    <linearGradient id="vrfSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#30D158" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#30D158" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="vrfGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      .vrf-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 16px; fill: #FFFFFF; }
+      .vrf-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #86868B; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+      .vrf-item-title { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 600; fill: #FFFFFF; }
+      .vrf-item-sub { font-family: -apple-system, sans-serif; font-size: 9.5px; fill: #86868B; }
+      .vrf-mono { font-family: "JetBrains Mono", monospace; font-size: 10px; }
+      .vrf-badge { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Container Base -->
+  <rect x="2" y="2" width="856" height="256" rx="24" fill="url(#vrfBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <!-- Top Title Strip -->
+  <g transform="translate(32, 22)">
+    <text x="0" y="14" class="vrf-title">Independent Cryptographic Verification Engine</text>
+    <text x="0" y="30" class="vrf-sub">Real-Time 6-Point Mathematical Validation Matrix (100% Offline Capable)</text>
+    
+    <!-- Top Right Verified Badge -->
+    <g transform="translate(640, 0)">
+      <rect x="0" y="0" width="156" height="24" rx="12" fill="#30D158" fill-opacity="0.12" stroke="#30D158" stroke-opacity="0.4"/>
+      <circle cx="14" cy="12" r="4" fill="#30D158">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="26" y="16" fill="#30D158" class="vrf-badge" font-size="10">6/6 CHECKS PASSED</text>
+    </g>
+  </g>
+
+  <!-- ================= LEFT: ROTATING AUDIT GAUGE ================= -->
+  <g transform="translate(110, 145)">
+    <!-- Base Outer Rings -->
+    <circle cx="0" cy="0" r="76" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/>
+    <circle cx="0" cy="0" r="62" stroke="#30D158" stroke-width="1" stroke-opacity="0.2" fill="none"/>
+
+    <!-- Rotating Radar Scan Sweep -->
+    <g>
+      <path d="M 0 0 L 53 -53 A 76 76 0 0 1 76 0 Z" fill="url(#vrfSweep)"/>
+      <line x1="0" y1="0" x2="53" y2="-53" stroke="#30D158" stroke-width="1.5" filter="url(#vrfGlow)"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Center Audit Score Hub -->
+    <circle cx="0" cy="0" r="42" fill="#14141C" stroke="#30D158" stroke-width="2" filter="url(#vrfGlow)"/>
+    <text x="0" y="4" text-anchor="middle" font-family="-apple-system, sans-serif" font-weight="800" font-size="20" fill="#30D158">6/6</text>
+    <text x="0" y="16" text-anchor="middle" class="vrf-mono" font-size="8" fill="#86868B">AUDITED</text>
+
+    <!-- Concentric Green Pulse -->
+    <circle cx="0" cy="0" r="42" stroke="#30D158" stroke-width="1.5" fill="none" opacity="0.8">
+      <animate attributeName="r" values="42;74;42" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ================= RIGHT: 6-POINT CHECKLIST GRID ================= -->
+  <g transform="translate(225, 68)">
+    <!-- Check 1: JSON-LD Schema -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="290" height="42" rx="8" fill="#121218" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="16" cy="21" r="7" fill="#30D158" fill-opacity="0.15"/>
+      <circle cx="16" cy="21" r="3.5" fill="#30D158"/>
+      <text x="32" y="18" class="vrf-item-title">1. JSON-LD Schema Compliance</text>
+      <text x="32" y="32" class="vrf-item-sub">Valid W3C VC v1.1 Context &amp; Types</text>
+      <text x="250" y="25" class="vrf-mono" fill="#30D158">PASSED</text>
+    </g>
+
+    <!-- Check 2: Issuer DID Resolution -->
+    <g transform="translate(305, 0)">
+      <rect x="0" y="0" width="295" height="42" rx="8" fill="#121218" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="16" cy="21" r="7" fill="#30D158" fill-opacity="0.15"/>
+      <circle cx="16" cy="21" r="3.5" fill="#30D158"/>
+      <text x="32" y="18" class="vrf-item-title">2. Issuer DID Resolution</text>
+      <text x="32" y="32" class="vrf-item-sub">Resolved to Active Ed25519 Key</text>
+      <text x="255" y="25" class="vrf-mono" fill="#30D158">PASSED</text>
+    </g>
+
+    <!-- Check 3: Ed25519 Mathematical Signature -->
+    <g transform="translate(0, 48)">
+      <rect x="0" y="0" width="290" height="42" rx="8" fill="#121218" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="16" cy="21" r="7" fill="#30D158" fill-opacity="0.15"/>
+      <circle cx="16" cy="21" r="3.5" fill="#30D158"/>
+      <text x="32" y="18" class="vrf-item-title">3. Ed25519 Cryptographic Sig</text>
+      <text x="32" y="32" class="vrf-item-sub">RFC 8032 Curve25519 Validated</text>
+      <text x="250" y="25" class="vrf-mono" fill="#30D158">PASSED</text>
+    </g>
+
+    <!-- Check 4: Temporal Validity -->
+    <g transform="translate(305, 48)">
+      <rect x="0" y="0" width="295" height="42" rx="8" fill="#121218" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="16" cy="21" r="7" fill="#30D158" fill-opacity="0.15"/>
+      <circle cx="16" cy="21" r="3.5" fill="#30D158"/>
+      <text x="32" y="18" class="vrf-item-title">4. Temporal Validity Window</text>
+      <text x="32" y="32" class="vrf-item-sub">Within Active Issuance &amp; Expiration</text>
+      <text x="255" y="25" class="vrf-mono" fill="#30D158">PASSED</text>
+    </g>
+
+    <!-- Check 5: RFC 8785 Canonical Payload Hash -->
+    <g transform="translate(0, 96)">
+      <rect x="0" y="0" width="290" height="42" rx="8" fill="#121218" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="16" cy="21" r="7" fill="#30D158" fill-opacity="0.15"/>
+      <circle cx="16" cy="21" r="3.5" fill="#30D158"/>
+      <text x="32" y="18" class="vrf-item-title">5. RFC 8785 Canonical Integrity</text>
+      <text x="32" y="32" class="vrf-item-sub">Deterministic JCS Byte Match</text>
+      <text x="250" y="25" class="vrf-mono" fill="#30D158">PASSED</text>
+    </g>
+
+    <!-- Check 6: EVM On-Chain Revocation Registry -->
+    <g transform="translate(305, 96)">
+      <rect x="0" y="0" width="295" height="42" rx="8" fill="#121218" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="16" cy="21" r="7" fill="#30D158" fill-opacity="0.15"/>
+      <circle cx="16" cy="21" r="3.5" fill="#30D158"/>
+      <text x="32" y="18" class="vrf-item-title">6. EVM On-Chain Registry</text>
+      <text x="32" y="32" class="vrf-item-sub">CredentialStatus.sol Confirms ACTIVE</text>
+      <text x="255" y="25" class="vrf-mono" fill="#30D158">PASSED</text>
+    </g>
+
+    <!-- Proof Hash Strip -->
+    <g transform="translate(0, 144)">
+      <rect x="0" y="0" width="600" height="24" rx="6" fill="#0C0C12" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="10" y="16" class="vrf-mono" fill="#86868B">SHA-256 PROOF FINGERPRINT:</text>
+      <text x="180" y="16" class="vrf-mono" fill="#64D2FF">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</text>
+    </g>
+  </g>
+</svg>

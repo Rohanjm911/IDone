@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" width="100%" height="260" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="sdBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08080C"/>
+      <stop offset="50%" stop-color="#111118"/>
+      <stop offset="100%" stop-color="#07070A"/>
+    </linearGradient>
+
+    <!-- Privacy Filter Laser Shimmer -->
+    <linearGradient id="shieldShimmer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#AF52DE" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#AF52DE" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#AF52DE" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <filter id="sdGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      .sd-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 16px; fill: #FFFFFF; }
+      .sd-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #86868B; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+      .sd-lbl { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 600; fill: #F5F5F7; }
+      .sd-mono { font-family: "JetBrains Mono", monospace; font-size: 10px; }
+      .sd-badge { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Container Base -->
+  <rect x="2" y="2" width="856" height="256" rx="24" fill="url(#sdBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <!-- Top Title Strip -->
+  <g transform="translate(32, 24)">
+    <text x="0" y="14" class="sd-title">Selective Credential Disclosure Protocol</text>
+    <text x="0" y="29" class="sd-sub">Zero-Knowledge Attribute Redaction &amp; Presentation Token Generation</text>
+    
+    <!-- Top Right Protocol Badge -->
+    <g transform="translate(680, 0)">
+      <rect x="0" y="0" width="116" height="22" rx="11" fill="#30D158" fill-opacity="0.12" stroke="#30D158" stroke-opacity="0.4"/>
+      <circle cx="12" cy="11" r="3.5" fill="#30D158">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="24" y="15" fill="#30D158" class="sd-badge">ZERO PII LEAK</text>
+    </g>
+  </g>
+
+  <!-- ================= 3-COLUMN PRIVACY GATEWAY ================= -->
+
+  <!-- 1. LEFT COLUMN: SOURCE VERIFIABLE CREDENTIAL -->
+  <g transform="translate(32, 70)">
+    <rect x="0" y="0" width="230" height="162" rx="14" fill="#121218" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    
+    <g transform="translate(14, 16)">
+      <text x="0" y="0" class="sd-sub" fill="#5AC8FA">FULL SOURCE CREDENTIAL</text>
+      
+      <!-- Claim 1: Disclosed -->
+      <g transform="translate(0, 14)">
+        <rect x="0" y="0" width="202" height="26" rx="6" fill="#30D158" fill-opacity="0.1" stroke="#30D158" stroke-opacity="0.3"/>
+        <circle cx="10" cy="13" r="3" fill="#30D158"/>
+        <text x="20" y="17" class="sd-mono" fill="#30D158">Clearance: Top Secret</text>
+      </g>
+
+      <!-- Claim 2: Disclosed -->
+      <g transform="translate(0, 44)">
+        <rect x="0" y="0" width="202" height="26" rx="6" fill="#30D158" fill-opacity="0.1" stroke="#30D158" stroke-opacity="0.3"/>
+        <circle cx="10" cy="13" r="3" fill="#30D158"/>
+        <text x="20" y="17" class="sd-mono" fill="#30D158">Specialty: Quantum Crypto</text>
+      </g>
+
+      <!-- Claim 3: Redacted -->
+      <g transform="translate(0, 74)">
+        <rect x="0" y="0" width="202" height="26" rx="6" fill="#FF453A" fill-opacity="0.1" stroke="#FF453A" stroke-opacity="0.3"/>
+        <circle cx="10" cy="13" r="3" fill="#FF453A"/>
+        <text x="20" y="17" class="sd-mono" fill="#FF857F">Full Name: Alice Nakamoto</text>
+        <line x1="20" y1="13" x2="185" y2="13" stroke="#FF453A" stroke-width="1.2"/>
+      </g>
+
+      <!-- Claim 4: Redacted -->
+      <g transform="translate(0, 104)">
+        <rect x="0" y="0" width="202" height="26" rx="6" fill="#FF453A" fill-opacity="0.1" stroke="#FF453A" stroke-opacity="0.3"/>
+        <circle cx="10" cy="13" r="3" fill="#FF453A"/>
+        <text x="20" y="17" class="sd-mono" fill="#FF857F">National ID: 948-20-XXXX</text>
+        <line x1="20" y1="13" x2="180" y2="13" stroke="#FF453A" stroke-width="1.2"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- 2. CENTER COLUMN: DYNAMIC PRIVACY SHIELD & PARTICLES -->
+  <g transform="translate(282, 70)">
+    <!-- Privacy Barrier Card -->
+    <rect x="0" y="0" width="250" height="162" rx="14" fill="#14141E" stroke="#AF52DE" stroke-opacity="0.3" stroke-width="1"/>
+    
+    <g transform="translate(16, 16)">
+      <text x="0" y="0" class="sd-sub" fill="#BF5AF2">SELECTIVE DISCLOSURE FILTER</text>
+
+      <!-- Central Laser Partition -->
+      <g transform="translate(108, 12)">
+        <line x1="0" y1="0" x2="0" y2="114" stroke="url(#shieldShimmer)" stroke-width="3" filter="url(#sdGlow)">
+          <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+        </line>
+      </g>
+
+      <!-- Flowing Green Particle Stream (Allowed Claims) -->
+      <g transform="translate(0, 32)">
+        <line x1="20" y1="0" x2="200" y2="0" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+        <circle cx="30" cy="0" r="4" fill="#30D158" filter="url(#sdGlow)">
+          <animate attributeName="cx" values="20;195;20" dur="2.2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="35" y="-6" class="sd-mono" fill="#30D158" font-size="8.5">PASS: Clearance Proof</text>
+      </g>
+
+      <!-- Flowing Green Particle Stream 2 -->
+      <g transform="translate(0, 62)">
+        <line x1="20" y1="0" x2="200" y2="0" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+        <circle cx="45" cy="0" r="4" fill="#30D158" filter="url(#sdGlow)">
+          <animate attributeName="cx" values="20;195;20" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
+        </circle>
+        <text x="35" y="-6" class="sd-mono" fill="#30D158" font-size="8.5">PASS: Specialty Proof</text>
+      </g>
+
+      <!-- Blocked Red Particle Streams (Dissolved Sensitive Claims) -->
+      <g transform="translate(0, 94)">
+        <line x1="20" y1="0" x2="90" y2="0" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <circle cx="30" cy="0" r="3.5" fill="#FF453A">
+          <animate attributeName="cx" values="20;95;20" dur="1.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite"/>
+        </circle>
+        <text x="18" y="-6" class="sd-mono" fill="#FF857F" font-size="8">BLOCKED: PII Name</text>
+        <!-- Lock Icon on Barrier -->
+        <rect x="100" y="-8" width="16" height="16" rx="4" fill="#FF453A" fill-opacity="0.2" stroke="#FF453A" stroke-width="1"/>
+        <text x="108" y="4" text-anchor="middle" font-size="9" fill="#FF453A">🔒</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 3. RIGHT COLUMN: OUTPUT SIGNED PRESENTATION -->
+  <g transform="translate(552, 70)">
+    <rect x="0" y="0" width="276" height="162" rx="14" fill="#121218" stroke="#30D158" stroke-opacity="0.3" stroke-width="1"/>
+    
+    <g transform="translate(14, 16)">
+      <text x="0" y="0" class="sd-sub" fill="#30D158">SIGNED VERIFIABLE PRESENTATION</text>
+      
+      <!-- Output Claims Card -->
+      <g transform="translate(0, 14)">
+        <rect x="0" y="0" width="248" height="52" rx="8" fill="#161622" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="10" y="18" class="sd-mono" fill="#30D158">✓ Clearance: Top Secret (SCI)</text>
+        <text x="10" y="36" class="sd-mono" fill="#30D158">✓ Specialty: Quantum Systems</text>
+      </g>
+
+      <!-- Signature & Proof Box -->
+      <g transform="translate(0, 74)">
+        <rect x="0" y="0" width="248" height="56" rx="8" fill="#0C0C12" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        
+        <text x="10" y="16" class="sd-mono" fill="#86868B">RFC 8785 JCS Deterministic Hash</text>
+        <text x="10" y="32" class="sd-mono" fill="#64D2FF">hash: 0x4f8a...9c12e8 (Active)</text>
+        <text x="10" y="48" class="sd-mono" fill="#BF5AF2">sig: Ed25519Signature2020</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" width="100%" height="260" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08080C"/>
+      <stop offset="50%" stop-color="#101017"/>
+      <stop offset="100%" stop-color="#060609"/>
+    </linearGradient>
+
+    <!-- Block Glow Gradient -->
+    <linearGradient id="blockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161622"/>
+      <stop offset="100%" stop-color="#0E0E16"/>
+    </linearGradient>
+
+    <!-- Active Anchor Highlight Gradient -->
+    <linearGradient id="activeAnchorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0071E3"/>
+      <stop offset="50%" stop-color="#30D158"/>
+      <stop offset="100%" stop-color="#00C7BE"/>
+    </linearGradient>
+
+    <filter id="bcGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      .bc-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 16px; fill: #FFFFFF; }
+      .bc-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #86868B; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+      .bc-num { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+      .bc-mono { font-family: "JetBrains Mono", monospace; font-size: 10px; }
+      .bc-badge { font-family: -apple-system, sans-serif; font-size: 9px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Container Base -->
+  <rect x="2" y="2" width="856" height="256" rx="24" fill="url(#bcBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <!-- Top Title Strip -->
+  <g transform="translate(32, 22)">
+    <text x="0" y="14" class="bc-title">EVM Blockchain Anchoring Engine</text>
+    <text x="0" y="30" class="bc-sub">Zero-PII On-Chain State Synchronization &amp; Revocation Registry</text>
+    
+    <!-- Top Right Synchronized Badge -->
+    <g transform="translate(640, 0)">
+      <rect x="0" y="0" width="156" height="24" rx="12" fill="#0071E3" fill-opacity="0.15" stroke="#0071E3" stroke-opacity="0.4"/>
+      <circle cx="14" cy="12" r="4" fill="#5AC8FA">
+        <animate attributeName="opacity" values="1;0.4;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="26" y="16" fill="#5AC8FA" class="bc-badge" font-size="10">EVM SYNC: ACTIVE</text>
+    </g>
+  </g>
+
+  <!-- ================= 3 INTERCONNECTED BLOCKS WITH CHAIN LINKS ================= -->
+  <g transform="translate(32, 68)">
+    
+    <!-- BLOCK 1: Block #219033 (Confirmed) -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="225" height="135" rx="14" fill="url(#blockGrad)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <g transform="translate(14, 18)">
+        <text x="0" y="0" class="bc-num" fill="#86868B">Block #219033</text>
+        <rect x="135" y="-12" width="60" height="16" rx="8" fill="#30D158" fill-opacity="0.12"/>
+        <text x="165" y="0" text-anchor="middle" fill="#30D158" class="bc-badge">CONFIRMED</text>
+
+        <!-- Tx Data -->
+        <g transform="translate(0, 16)">
+          <text x="0" y="12" class="bc-mono" fill="#86868B">Prev Hash: <tspan fill="#64D2FF">0x4a9f...31bc</tspan></text>
+          <text x="0" y="28" class="bc-mono" fill="#86868B">Tx Count: <tspan fill="#F5F5F7">42 Anchors</tspan></text>
+          <text x="0" y="44" class="bc-mono" fill="#86868B">Gas Used: <tspan fill="#F5F5F7">184,210 gwei</tspan></text>
+          <text x="0" y="60" class="bc-mono" fill="#86868B">Finality: <tspan fill="#30D158">Finalized L1/L2</tspan></text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Animated Chain Link 1 -> 2 -->
+    <g transform="translate(225, 58)">
+      <line x1="8" y1="10" x2="52" y2="10" stroke="#33333E" stroke-width="3" stroke-dasharray="4 4"/>
+      <!-- Flowing Hash Packet -->
+      <circle cx="15" cy="10" r="4" fill="#0071E3" filter="url(#bcGlow)">
+        <animate attributeName="cx" values="10;50;10" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- BLOCK 2: Block #219034 (CURRENT ANCHOR BLOCK) -->
+    <g transform="translate(285, 0)">
+      <rect x="0" y="0" width="250" height="135" rx="14" fill="#14141E" stroke="#30D158" stroke-width="1.5" filter="url(#bcGlow)"/>
+      <g transform="translate(16, 18)">
+        <text x="0" y="0" class="bc-num" fill="#30D158">Block #219034</text>
+        <rect x="145" y="-12" width="70" height="16" rx="8" fill="#30D158" fill-opacity="0.15"/>
+        <text x="180" y="0" text-anchor="middle" fill="#30D158" class="bc-badge">LIVE ANCHOR</text>
+
+        <!-- Smart Contract Anchors -->
+        <g transform="translate(0, 16)">
+          <!-- Anchor 1 -->
+          <rect x="0" y="4" width="218" height="26" rx="6" fill="#181826" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="8" y="21" class="bc-mono" fill="#5AC8FA">IdentityRegistry.sol</text>
+          <text x="145" y="21" class="bc-mono" fill="#30D158">keccak(did)</text>
+
+          <!-- Anchor 2 -->
+          <rect x="0" y="34" width="218" height="26" rx="6" fill="#181826" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="8" y="51" class="bc-mono" fill="#BF5AF2">CredentialStatus.sol</text>
+          <text x="150" y="51" class="bc-mono" fill="#30D158">revoked: 0</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Animated Chain Link 2 -> 3 -->
+    <g transform="translate(535, 58)">
+      <line x1="8" y1="10" x2="52" y2="10" stroke="#33333E" stroke-width="3" stroke-dasharray="4 4"/>
+      <!-- Flowing Hash Packet -->
+      <circle cx="15" cy="10" r="4" fill="#30D158" filter="url(#bcGlow)">
+        <animate attributeName="cx" values="10;50;10" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- BLOCK 3: Block #219035 (Pending Propagation) -->
+    <g transform="translate(595, 0)">
+      <rect x="0" y="0" width="200" height="135" rx="14" fill="url(#blockGrad)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <g transform="translate(14, 18)">
+        <text x="0" y="0" class="bc-num" fill="#86868B">Block #219035</text>
+        <rect x="110" y="-12" width="60" height="16" rx="8" fill="#FF9F0A" fill-opacity="0.12"/>
+        <text x="140" y="0" text-anchor="middle" fill="#FF9F0A" class="bc-badge">MINING...</text>
+
+        <!-- Tx Data -->
+        <g transform="translate(0, 16)">
+          <text x="0" y="12" class="bc-mono" fill="#86868B">Next State Root</text>
+          <text x="0" y="28" class="bc-mono" fill="#64D2FF">0x89f2b...7c1a</text>
+          <text x="0" y="44" class="bc-mono" fill="#86868B">Mempool: <tspan fill="#FF9F0A">3 Key Rotations</tspan></text>
+          <text x="0" y="60" class="bc-mono" fill="#86868B">EVM Consensus: <tspan fill="#30D158">99.8%</tspan></text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Zero-PII Guarantee Banner -->
+    <g transform="translate(0, 148)">
+      <rect x="0" y="0" width="795" height="24" rx="6" fill="#0C0C12" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <circle cx="12" cy="12" r="3" fill="#30D158"/>
+      <text x="24" y="16" class="bc-mono" fill="#86868B">STRICT OFF-CHAIN PRIVACY: <tspan fill="#F5F5F7">No names, documents, or cleartext credentials touch blockchain state. Only mathematical hashes &amp; revocation bits are anchored.</tspan></text>
+    </g>
+  </g>
+</svg>
